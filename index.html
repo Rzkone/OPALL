@@ -346,6 +346,13 @@ div.txt mark{background:color-mix(in srgb,var(--warn) 28%,transparent);color:inh
 .main table+.hint,.main table+p.hint{font-size:16px;line-height:1.6;color:var(--tx);font-weight:600;background:var(--tbl-zb);border-left:4px solid var(--tbl-hdln);border-radius:0 10px 10px 0;padding:12px 16px;margin-top:12px!important}
 .main table+.hint b{color:var(--tbl-hdln)}
 .trta{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font:400 14px/1.7 var(--font);resize:vertical;min-height:110px}
+.trq{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:11px 14px;font:400 15px/1.4 var(--font)}
+.trq:focus{outline:2px solid var(--acc);outline-offset:1px}
+.pills .chip.on{border-color:var(--acc);background:var(--accbg);font-weight:600}
+.trr.mix{border-color:var(--acc);background:var(--accbg)}
+.trr{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 10px;background:var(--panel)}
+.trrh{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.trrt{font-size:14px;line-height:1.65;margin:0 0 8px}
 .trta:focus{outline:2px solid var(--acc);outline-offset:1px}
 .trst{margin:0 0 10px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .trw{margin:8px 0 12px;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--warn) 18%,transparent);font-size:13px}
@@ -566,11 +573,11 @@ div.txt .li>span:last-child{flex:1;min-width:0}
 div.txt .kv{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed color-mix(in srgb,var(--line) 80%,transparent)}
 div.txt .kv:last-child{border-bottom:0}
 .tkp{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;margin:14px 0;padding:14px 18px;border:1px solid color-mix(in srgb,var(--acc) 40%,var(--line));border-left:5px solid var(--acc);border-radius:12px;background:color-mix(in srgb,var(--acc) 8%,var(--panel))}
-.tkp .l{font-size:10.5px;letter-spacing:.12em;font-weight:700;color:var(--mut);text-transform:uppercase;margin-bottom:4px}
+.tkp .l{font-size:11px;letter-spacing:.1em;font-weight:600;color:var(--mut);text-transform:uppercase;margin-bottom:5px}
 .tkp .tkm{flex:1 1 260px;min-width:0}
-.tkp .v{font-size:17px;font-weight:800;color:var(--tx);line-height:1.35}
-.tkp .tkb{display:inline-block;font-size:15px;font-weight:800;padding:6px 16px;border-radius:999px;color:#fff;background:var(--bad);letter-spacing:.02em}
-.tkp .tkb.ok{background:var(--acc)}
+.tkp .v{font:500 20px/1.3 var(--serif);color:var(--tx);letter-spacing:-.005em}
+.tkp .tkb{display:inline-flex;align-items:center;font:700 14px/1.2 var(--font);padding:8px 18px;border-radius:999px;color:var(--warn);background:color-mix(in srgb,var(--warn) 16%,var(--panel));border:1.5px solid color-mix(in srgb,var(--warn) 70%,transparent);letter-spacing:.01em}
+.tkp .tkb.ok{color:var(--accfilltx);background:var(--accfill);border-color:var(--accfill)}
 .steps b{font-weight:700;color:var(--tx)}
 .lab span{color:var(--tx);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
 .tpl div.txt{border-left:4px solid color-mix(in srgb,var(--acc) 60%,transparent)}
@@ -847,6 +854,9 @@ const SEED_CARDS=[
   mk({id:'pr-myicon',group:'produk',tool:'mi',icon:'smartphone',order:29,code:'R10',color:'cyan',title:'Panduan Aplikasi MyICON+',short:'MyICON+',tujuan:'Panduan fitur aplikasi',
   keywords:["myicon","myicon+","my icon","aplikasi myicon","aplikasi myicon+","login myicon","masuk dengan google","hubungkan akun","masuk dengan email terdaftar","tambah id pelanggan","cek coverage","coverage aplikasi","promo iconnet","berita","voip","call center aplikasi","upgrade layanan aplikasi","upgrade sekarang","nomor pembayaran","kode va aplikasi","buat laporan aplikasi","faq aplikasi","refund aplikasi","tarik saldo","saldo deposit","wifi extender aplikasi","ott aplikasi","smart home","chat kami","chat agent","live chat","riwayat aktivitas","riwayat tagihan","informasi pengguna","informasi berlangganan","akun terhubung","putuskan akun","pusat bantuan","hubungi kami","syarat dan ketentuan","kebijakan privasi","tentang aplikasi","keluar aplikasi","versi aplikasi","non pelanggan aplikasi","koneksi internet bebas hambatan","layanan andalan"],
   probing:[],icrm:[],questions:[],branches:[]}),
+  mk({id:'pr-giveaway',group:'produk',tool:'gw',icon:'trophy',order:30,code:'R11',color:'amber',title:'Giveaway',short:'Giveaway',tujuan:'Informasi produk',
+  keywords:['giveaway','give away','gamifikasi','iconnet their dreams','their dreams','connect their dreams','short story','cerita pelanggan','merchandise','souvenir','pelanggan ulang tahun','ulang tahun','customer story','hadiah','apresiasi pelanggan'],
+  probing:[],icrm:[],questions:[],branches:[]}),
  mk({id:'pr-pleks',group:'produk',tool:'peks',icon:'archive',order:26,code:'R7',color:'slate',title:'PL Eksisting',short:'PL Eksisting',tujuan:'Informasi produk',
   keywords:['pl eksisting','price list eksisting','pricelist eksisting','pelanggan eksisting','harga eksisting','harga pelanggan lama','harga reguler eksisting','harga hebat eksisting','upgrade harga'],
   probing:[],icrm:[],questions:[],branches:[]}),
@@ -916,48 +926,287 @@ const TR_INTERNAL=/cgnat|flapping|eskalasi mod/;
 /* slot: prep (persiapan/posisi tim) → found (temuan) → cause (penyebab) → action → result. ind = hanya indikasi dari judul alert.
    re: semua pola harus cocok · not: tidak boleh cocok · sup: aturan lain yang digugurkan · skip: aturan ini diabaikan bila salah satu id itu aktif */
 const TR_RULES=[
- {id:'branch-modem',n:'ONU offline + Branch fiber cut',slot:'found',re:[/\boffline\b/,/branch fiber cut/],t:'internet di lokasi Anda terputus karena kabel serat optik pada jalur distribusi menuju area Anda rusak atau putus, sehingga sinyal tidak sampai ke modem Anda',sup:['branch','modem-off','kabel-putus','los','otdr','loss-otdr']},
- {id:'perbaikan-lap',n:'Branch fiber cut (perbaikan)',slot:'action',re:[/\boffline\b/,/branch fiber cut/],t:'tim lapangan sedang bersiap dan memperbaiki kabel serat optik yang rusak tersebut',skip:['splice','tarik']},
- {id:'branch',n:'Branch fiber cut',slot:'found',re:[/branch fiber cut/],t:'terjadi kerusakan fisik pada kabel serat optik di jalur distribusi menuju area Anda, sehingga sinyal internet tidak bisa mengalir sampai ke lokasi Anda',sup:['kabel-putus']},
- {id:'modem-off',n:'ONU / ONT offline',slot:'found',re:[/\boffline\b/],t:'modem Anda terdeteksi tidak terhubung ke jaringan kami, artinya sinyal dari jaringan tidak sampai ke modem Anda, dan penyebab pastinya sedang ditelusuri tim teknis'},
- {id:'fdt-core',n:'Core putus di FDT',slot:'found',re:[/core[^|.]{0,25}putus/,/fdt/],t:'salah satu kabel serat optik di kotak pembagi jaringan wilayah Anda putus atau rusak, sehingga sinyal internet berhenti di titik tersebut dan tidak sampai ke pelanggan di sekitarnya',sup:['core-putus','kabel-putus']},
- {id:'core-putus',n:'Core putus',slot:'found',re:[/core[^|.]{0,25}putus/],t:'salah satu serat optik pada kabel utama yang menyalurkan sinyal internet ke area Anda putus, sehingga sinyal tidak dapat mengalir',sup:['kabel-putus']},
- {id:'kabel-putus',n:'Kabel putus / FO cut',slot:'found',re:[/(kabel|fo|fiber|serat|adss)[^|.]{0,30}putus|\bfo cut\b|fiber cut/],not:[/(tidak|belum) (ada )?(kabel )?putus/],t:'kabel serat optik yang menyalurkan sinyal internet ke area Anda putus atau rusak di luar lokasi Anda, sehingga sinyal tidak sampai ke modem'},
- {id:'unmonitor',n:'Unmonitor',slot:'found',re:[/unmonitor|tidak terpantau/],t:'perangkat pusat yang mengatur sinyal internet di area Anda tidak terbaca oleh sistem pemantauan kami, kemungkinan karena perangkat tersebut mati atau kabel yang menuju ke perangkat itu terputus, dan penyebab pastinya sedang dipastikan'},
- {id:'indikasi-olt',n:'Indikasi OLT hang / FO cut',slot:'found',re:[/indikasi/,/\bhang\b/,/fo cut/],t:'ada indikasi kerusakan pada perangkat pusat yang mengatur sinyal internet di area Anda atau pada kabel utama yang terhubung ke perangkat itu, sehingga layanan terganggu, dan penyebab pastinya sedang dikonfirmasi tim teknis',sup:['hang','kabel-putus']},
- {id:'hang',n:'Hang (Device / OLT / Router)',slot:'found',re:[/\bhang\b/],t:'perangkat pusat yang mengatur sinyal internet di area Anda berhenti merespons seperti komputer yang sedang macet, sehingga layanan pelanggan di area tersebut ikut terganggu'},
- {id:'kwh',n:'KWH trip / Power outage',slot:'found',re:[/kwh ?trip/],t:'aliran listrik ke perangkat pemancar sinyal internet di area Anda padam, sehingga perangkat tidak bisa bekerja dan layanan internet ikut terhenti'},
- {id:'loss-otdr',n:'Loss + OTDR',slot:'found',re:[/\b(loss|redaman)\b/,/otdr/],t:'sinyal internet pada kabel serat optik di jalur Anda melemah karena ada titik kabel yang kemungkinan bengkok, tertekan, atau rusak, dan tim lapangan sedang melacak lokasi pastinya',skip:['kabel-putus','branch','branch-modem','core-putus','fdt-core']},
- {id:'otdr',n:'OTDR (Tracing Process)',slot:'action',re:[/otdr/],t:'tim teknis sedang mengukur dan melacak titik kerusakan pada kabel memakai alat khusus agar lokasinya ditemukan dengan tepat',skip:['kabel-putus','branch','branch-modem','core-putus','fdt-core','loss-otdr']},
- {id:'los',n:'LOS (Loss of Signal)',slot:'found',re:[/\blos\b/],t:'modem Anda tidak menerima sinyal internet dari jaringan, umumnya karena kabel serat optik putus, rusak, atau sinyalnya terhalang di jalurnya, dan sedang diperiksa tim teknis',skip:['kabel-putus','branch','branch-modem','core-putus','fdt-core','loss-otdr','kwh']},
- {id:'kebakaran',n:'Kebakaran',slot:'cause',re:[/kebakaran/],t:'penyebabnya adalah kebakaran di sekitar jalur kabel, sehingga kabel serat optik terdampak panas atau terbakar dan sinyal internet terhenti'},
- {id:'kejepit',n:'Kejepit kaset (Closure Pinch)',slot:'cause',re:[/kejepit|terjepit/],t:'penyebabnya adalah kabel serat optik tertekan atau terjepit di dalam kotak sambungan kabel, sehingga sinyal internet tidak bisa lewat dengan baik'},
- {id:'fat-loss',n:'FAT loss (Alert)',slot:'ind',re:[/fat loss/],t:'sinyal internet melemah di kotak pembagi jaringan dekat area Anda, bisa karena sambungan kabel kotor, longgar, atau tertekan, sehingga koneksi pelanggan di sekitarnya ikut terganggu'},
- {id:'feeder-down',n:'Feeder port down (Alert)',slot:'ind',re:[/feeder/,/port[^|]{0,15}down/],t:'jalur kabel utama yang mengalirkan sinyal internet ke wilayah Anda sedang bermasalah, sehingga pelanggan di wilayah tersebut kehilangan koneksi'},
- {id:'high-att',n:'High Attenuation / Redaman High',slot:'found',re:[/high attenuation|redaman high|attenuation high/],t:'sinyal internet yang sampai ke modem Anda melemah akibat redaman pada kabel, misalnya kabel tertekan, bengkok, atau sambungan kurang baik, sehingga koneksi bisa lambat atau sesekali terputus'},
- {id:'ip-conflict',n:'IP Conflict / DHCP Error',slot:'found',re:[/ip conflict|dhcp/],t:'terjadi bentrok alamat koneksi di jaringan, yaitu dua perangkat memakai alamat yang sama, sehingga perangkat Anda gagal tersambung ke internet'},
- {id:'vandal',n:'Vandalisme / Kabel Terpotong',slot:'cause',re:[/vandal|kabel (di)?potong|terpotong/],t:'penyebabnya adalah kabel rusak atau terpotong akibat ulah pihak lain di sekitar jalur kabel, sehingga sinyal internet terputus'},
- {id:'pohon',n:'Pohon Tumbang / Roboh',slot:'cause',re:[/pohon[^|.]{0,15}(tumbang|roboh)|tumbang|roboh/],t:'penyebabnya adalah pohon tumbang atau cuaca buruk yang merusak tiang dan kabel di wilayah tersebut, sehingga sinyal internet terputus'},
- {id:'galian',n:'Pekerjaan Galian Pihak Ke-3',slot:'cause',re:[/galian|pihak (ke-?3|ketiga)/],t:'penyebabnya adalah pekerjaan galian atau proyek pihak lain di sekitar lokasi yang mengenai kabel kami, sehingga kabel rusak dan sinyal terputus'},
- {id:'reboot',n:'Remote Reboot / Refresh Port',slot:'action',re:[/remote reboot|refresh port|reboot/],t:'tim kami sedang menyegarkan ulang sambungan modem Anda dari jarak jauh agar kembali terhubung ke jaringan'},
- {id:'ganti-ont',n:'Replacement Device / Ganti ONT',slot:'action',re:[/replacement|ganti (ont|modem|perangkat)|penggantian (ont|modem|perangkat)/],t:'perangkat modem Anda diduga rusak, sehingga tim teknis akan menggantinya dengan yang baru di lokasi Anda'},
- {id:'antri',n:'Antrean pengecekan',slot:'prep',re:[/antri/],t:'laporan Anda telah tercatat dan saat ini berada dalam antrean prioritas pengecekan tim teknis'},
- {id:'jalan',n:'Tim dalam perjalanan',slot:'prep',re:[/dalam perjalanan|menuju lokasi/],t:'tim teknis lapangan saat ini sedang dalam perjalanan menuju ke lokasi atau titik kendala',sup:['antri']},
- {id:'tiba',n:'Tim tiba',slot:'prep',re:[/tim tiba|tiba di/],t:'tim teknis lapangan sudah berada di lokasi untuk melakukan penanganan lebih lanjut',sup:['antri','jalan']},
- {id:'cek-fdt',n:'Pengecekan di FDT',slot:'prep',re:[/tim pengec\w*|pengec\w* di fdt/,/fdt/],t:'tim teknis sedang melakukan pemeriksaan pada kotak distribusi jaringan di wilayah sekitar lokasi Anda',sup:['antri','jalan']},
- {id:'tracing',n:'Tracing',slot:'action',re:[/trace?ing(?! core)|\btrace\b|menelusuri/],t:'tim teknis sedang menyusuri jalur kabel untuk menemukan titik tepat terjadinya gangguan'},
- {id:'splice',n:'Rejoint / Splicing',slot:'action',re:[/rejoi\w*|re-?joint\w*|splic\w*|sambung ulang|menyambung/],t:'tim lapangan sedang melakukan proses penyambungan kembali pada serat optik yang terputus'},
- {id:'tarik',n:'Penarikan kabel',slot:'action',re:[/penarikan kabel|tarik kabel|menarik kabel/],t:'perbaikan dilakukan dengan menggelar jalur kabel pengganti baru dan menyambungkannya kembali ke sistem',sup:['splice']},
- {id:'material',n:'Material dibutuhkan',slot:'action',re:[/matr?ial dibutuhkan/],t:'tim lapangan sedang menyiapkan suku cadang atau material pengganti yang sesuai untuk menyelesaikan pekerjaan di lokasi'},
- {id:'kwh-normal',n:'KWH trip dinormalkan',slot:'action',re:[/kwh/,/penormalan|dinormalkan|normalisasi/],t:'sumber daya listrik penunjang perangkat pemancar jaringan di wilayah Anda telah kembali berfungsi dengan baik',sup:['normalkan']},
- {id:'normalkan',n:'Penormalan / Process In Progress',slot:'action',re:[/penormalan|dinormalkan|normalisasi/],t:'saat ini seluruh tahap perbaikan sedang berjalan untuk memulihkan koneksi Anda'},
- {id:'cek-detail',n:'Check on site (lampu, listrik, link)',slot:'action',re:[/check on site/,/lampu indikator/,/source power/,/status link/],t:'tim teknis memeriksa langsung kondisi indikator perangkat, kecukupan daya listrik, serta keutuhan sinyal jalur koneksi',sup:['cek']},
- {id:'cek',n:'Check on site',slot:'action',re:[/check on site|mohon check|cek di lokasi|cek langsung/],t:'tim teknis sedang melakukan pemeriksaan fisik secara langsung di lokasi titik gangguan'},
- {id:'up',n:'Kembali up',slot:'result',re:[/kembali up/],t:'perangkat dan jalur koneksi jaringan Anda telah menyala serta terhubung kembali'},
- {id:'konfirmasi',n:'Konfirmasi user normal',slot:'result',re:[/konfirm\w* user (kembali )?normal/],t:'layanan internet di lokasi Anda telah dikonfirmasi berfungsi normal kembali oleh pihak pelanggan'},
- {id:'monitoring',n:'Monitoring',slot:'result',re:[/monitoring|dipantau/],t:'kondisi koneksi Anda telah pulih dan saat ini masih terus dipantau oleh tim kami agar tetap stabil'},
- {id:'normal',n:'Normal / clear',slot:'result',re:[/\bnormal\b|\bclear\b/],not:[/(tidak|belum|bukan) normal/],t:'seluruh kendala telah berhasil ditangani dan kualitas koneksi di lokasi Anda sudah kembali normal',skip:['konfirmasi','up','sig','kwh-normal','normalkan']}
+ {id:'branch-modem',n:'ONU offline + Branch fiber cut',slot:'found',re:[/\boffline\b/,/branch fiber cut/],t:'perangkat modem di lokasi Anda terputus dari jaringan karena jalur kabel cabang yang menyalurkan sinyal ke lingkungan Anda mengalami kerusakan fisik',sup:['branch','modem-off','kabel-putus','los','otdr','loss-otdr']},
+ {id:'perbaikan-lap',n:'Branch fiber cut (perbaikan)',slot:'action',re:[/\boffline\b/,/branch fiber cut/],t:'tim lapangan sedang mengerjakan proses penyambungan dan perbaikan fisik pada jalur kabel cabang yang terputus menuju area Anda',skip:['splice','tarik']},
+ {id:'branch',n:'Branch fiber cut',slot:'found',re:[/branch fiber cut/],t:'jalur kabel cabang yang mengalirkan koneksi dari jalur utama ke lingkungan sekitar Anda terdeteksi terputus',sup:['kabel-putus']},
+ {id:'modem-off',n:'ONU / ONT offline',slot:'found',re:[/\boffline\b/],t:'perangkat modem di lokasi Anda terpantau mati atau tidak terhubung sama sekali dengan sistem pusat kami'},
+ {id:'fdt-core',n:'Core putus di FDT',slot:'found',re:[/core[^|.]{0,25}putus/,/fdt/],t:'salah satu jalur inti serat optik di dalam kotak distribusi utama wilayah Anda terputus, sehingga aliran sinyal ke arah lokasi Anda terhenti',sup:['core-putus','kabel-putus']},
+ {id:'core-putus',n:'Core putus',slot:'found',re:[/core[^|.]{0,25}putus/],t:'terdapat serat optik di dalam jalur kabel utama yang terputus sehingga sinyal internet tidak dapat mengalir sampai ke lokasi Anda',sup:['kabel-putus']},
+ {id:'kabel-putus',n:'Kabel putus / FO cut',slot:'found',re:[/(kabel|fo|fiber|serat|adss)[^|.]{0,30}putus|\bfo cut\b|fiber cut/],not:[/(tidak|belum) (ada )?(kabel )?putus/],t:'jalur kabel serat optik di luar bangunan Anda mengalami putus fisik dan perlu disambung ulang'},
+ {id:'unmonitor',n:'Unmonitor',slot:'found',re:[/unmonitor|tidak terpantau/],t:'perangkat pusat pengatur sinyal di wilayah Anda sementara tidak terbaca oleh sistem pemantauan kami karena terputusnya komunikasi jaringan'},
+ {id:'indikasi-olt',n:'Indikasi OLT hang / FO cut',slot:'found',re:[/indikasi/,/\bhang\b/,/fo cut/],t:'terdeteksi gangguan antara perangkat pusat pengatur sinyal di area Anda atau jalur kabel utamanya; tim sedang memastikan titik pasti kendalanya',sup:['hang','kabel-putus']},
+ {id:'hang',n:'Hang (Device / OLT / Router)',slot:'found',re:[/\bhang\b/],t:'perangkat pusat yang mengatur lalu lintas internet di wilayah Anda sedang mengalami gangguan sistem sehingga respons koneksi terhenti sementara'},
+ {id:'kwh',n:'KWH trip / Power outage',slot:'found',re:[/kwh ?trip/],t:'aliran listrik pada gardu/kotak perangkat pemancar jaringan di wilayah Anda terputus, sehingga perangkat pemancar sinyal tidak dapat beroperasi'},
+ {id:'loss-otdr',n:'Loss + OTDR',slot:'found',re:[/\b(loss|redaman)\b/,/otdr/],t:'sinyal internet menuju area Anda terputus di tengah jalur kabel, dan tim lapangan sedang menggunakan alat ukur khusus untuk melacak titik lokasi putusnya',skip:['kabel-putus','branch','branch-modem','core-putus','fdt-core']},
+ {id:'otdr',n:'OTDR (Tracing Process)',slot:'action',re:[/otdr/],t:'tim teknis sedang melakukan pengukuran sinyal dari titik pusat/kotak pembagi untuk mengetahui lokasi pasti kabel yang putus di lapangan',skip:['kabel-putus','branch','branch-modem','core-putus','fdt-core','loss-otdr']},
+ {id:'los',n:'LOS (Loss of Signal)',slot:'found',re:[/\blos\b/],t:'perangkat modem di rumah/lokasi Anda menyala, namun tidak menerima pancaran sinyal internet yang masuk dari jalur kabel luar',skip:['kabel-putus','branch','branch-modem','core-putus','fdt-core','loss-otdr','kwh']},
+ {id:'kebakaran',n:'Kebakaran',slot:'cause',re:[/kebakaran/],t:'terjadi insiden kebakaran di sekitar jalur tiang/kabel jaringan yang menyebabkan kabel utama ikut terbakar dan terputus'},
+ {id:'kejepit',n:'Kejepit kaset (Closure Pinch)',slot:'cause',re:[/kejepit|terjepit/],t:'helai serat optik di dalam kotak sambungan luar tertekan oleh dudukannya sehingga aliran sinyal ke arah lokasi Anda terhambat'},
+ {id:'fat-loss',n:'FAT loss (Alert)',slot:'ind',re:[/fat loss/],t:'sinyal internet terpantau terhenti pada kotak pembagi jaringan di tiang terdekat yang melayani lingkungan sekitar Anda'},
+ {id:'feeder-down',n:'Feeder port down (Alert)',slot:'ind',re:[/feeder/,/port[^|]{0,15}down/],t:'jalur keluar utama dari pusat jaringan yang menyuplai koneksi ke kawasan Anda terdeteksi tidak aktif atau mengalami gangguan'},
+ {id:'high-att',n:'High Attenuation / Redaman High',slot:'found',re:[/high attenuation|redaman high|attenuation high/],t:'kualitas pancaran sinyal optik yang masuk ke modem Anda melemah akibat hambatan pada jalur kabel, sehingga koneksi menjadi lambat atau sering terputus'},
+ {id:'ip-conflict',n:'IP Conflict / DHCP Error',slot:'found',re:[/ip conflict|dhcp/],t:'terjadi benturan atau kegagalan pemberian alamat koneksi otomatis pada sistem jaringan yang membuat perangkat Anda gagal terhubung ke internet'},
+ {id:'vandal',n:'Vandalisme / Kabel Terpotong',slot:'cause',re:[/vandal|kabel (di)?potong|terpotong/],t:'jalur kabel jaringan di area luar mengalami kerusakan akibat tindakan perusakan atau pemotongan oleh pihak yang tidak bertanggung jawab'},
+ {id:'pohon',n:'Pohon Tumbang / Roboh',slot:'cause',re:[/pohon[^|.]{0,15}(tumbang|roboh)|tumbang|roboh/],t:'pohon atau dahan besar yang tumbang di sekitar lokasi menimpa tiang dan menarik jalur kabel jaringan hingga putus'},
+ {id:'galian',n:'Pekerjaan Galian Pihak Ke-3',slot:'cause',re:[/galian|pihak (ke-?3|ketiga)/],t:'jalur kabel jaringan tertanam/tergantung terdampak oleh aktivitas alat berat atau pekerjaan galian proyek lain di sekitar lokasi'},
+ {id:'reboot',n:'Remote Reboot / Refresh Port',slot:'action',re:[/remote reboot|refresh port|reboot/],t:'tim kami sedang menyegarkan ulang jalur koneksi perangkat modem Anda dari sistem pusat untuk memulihkan akses internet'},
+ {id:'ganti-ont',n:'Replacement Device / Ganti ONT',slot:'action',re:[/replacement|ganti (ont|modem|perangkat)|penggantian (ont|modem|perangkat)/],t:'karena perangkat modem lama mengalami kerusakan fungsi, tim teknis akan menggantinya dengan unit modem baru di lokasi Anda'},
+ {id:'antri',n:'Antrean pengecekan',slot:'prep',re:[/antri/],t:'laporan gangguan Anda sudah masuk ke sistem penanganan lapangan dan saat ini sedang menunggu giliran tim teknis terdekat untuk meluncur ke lokasi'},
+ {id:'jalan',n:'Tim dalam perjalanan',slot:'prep',re:[/dalam perjalanan|menuju lokasi/],t:'tim teknis lapangan sudah ditugaskan dan saat ini sedang dalam perjalanan menuju titik jaringan di area Anda',sup:['antri']},
+ {id:'tiba',n:'Tim tiba',slot:'prep',re:[/tim tiba|tiba di/],t:'tim teknis lapangan sudah tiba di titik lokasi gangguan dan mulai melakukan pemeriksaan fisik pada jalur jaringan',sup:['antri','jalan']},
+ {id:'cek-fdt',n:'Pengecekan di FDT / ODC / ODP / FAT',slot:'prep',re:[/tim pengec\w*|pengec\w* di (fdt|odc|odp|fat)/,/fdt|odc|odp/],t:'tim teknis sedang membuka dan memeriksa kondisi jalur sinyal di dalam kotak distribusi/pembagi jaringan yang berada di lingkungan Anda',sup:['antri','jalan']},
+ {id:'tracing',n:'Tracing',slot:'action',re:[/trace?ing(?! core)|\btrace\b|menelusuri/],t:'tim teknis sedang menyusuri jalur tiang dan kabel di lapangan secara fisik untuk menemukan titik pasti kerusakan kabel'},
+ {id:'splice',n:'Rejoint / Splicing',slot:'action',re:[/rejoi\w*|re-?joint\w*|splic\w*|sambung ulang|menyambung/],t:'tim teknis sedang menyambung kembali helai serat optik yang terputus menggunakan alat penyambung khusus dan memasang pelindung barunya'},
+ {id:'tarik',n:'Penarikan kabel',slot:'action',re:[/penarikan kabel|tarik kabel|menarik kabel/],t:'karena kabel lama tidak dapat disambung, tim sedang menarik dan membentangkan jalur kabel baru dari tiang terdekat menuju ke lokasi Anda',sup:['splice']},
+ {id:'material',n:'Material dibutuhkan',slot:'action',re:[/matr?ial dibutuhkan/],t:'tim lapangan sedang mengambil dan menyiapkan material kabel serta komponen penyambung tambahan yang diperlukan untuk menyelesaikan perbaikan'},
+ {id:'kwh-normal',n:'KWH trip dinormalkan',slot:'action',re:[/kwh/,/penormalan|dinormalkan|normalisasi/],t:'aliran listrik menuju perangkat pemancar jaringan di area Anda sudah berhasil dinyalakan kembali sehingga perangkat pusat mulai beroperasi normal',sup:['normalkan']},
+ {id:'normalkan',n:'Penormalan / Process In Progress',slot:'action',re:[/penormalan|dinormalkan|normalisasi/],t:'proses perbaikan fisik di lapangan sudah tahap akhir dan sistem sedang menjalankan pemulihan aliran sinyal ke seluruh pelanggan terdampak'},
+ {id:'cek-detail',n:'Check on site (lampu, listrik, link)',slot:'action',re:[/check on site/,/lampu indikator/,/source power/,/status link/],t:'tim teknis sedang memeriksa langsung kondisi lampu indikator pada modem Anda, memastikan sumber listrik aman, serta mengecek sambungan kabel yang masuk ke perangkat',sup:['cek']},
+ {id:'cek',n:'Check on site',slot:'action',re:[/check on site|mohon check|cek di lokasi|cek langsung/],t:'tim teknis sedang melakukan pengecekan menyeluruh secara langsung di titik lokasi gangguan maupun di sekitar bangunan Anda'},
+ {id:'up',n:'Kembali up',slot:'result',re:[/kembali up/],t:'perangkat jaringan dan jalur koneksi internet menuju lokasi Anda sudah kembali menyala dan terhubung ke sistem pusat'},
+ {id:'konfirmasi',n:'Konfirmasi user normal',slot:'result',re:[/konfirm\w* user (kembali )?normal/],t:'perbaikan telah selesai dilakukan dan layanan internet di lokasi Anda sudah dipastikan berjalan normal kembali berdasarkan konfirmasi Anda/pihak di lokasi'},
+ {id:'monitoring',n:'Monitoring',slot:'result',re:[/monitoring|dipantau/],t:'koneksi internet Anda sudah berhasil dipulihkan dan saat ini sistem kami masih terus memantau kestabilan sinyalnya agar tidak terulang kendala serupa'},
+ {id:'normal',n:'Normal / clear',slot:'result',re:[/\bnormal\b|\bclear\b/],not:[/(tidak|belum|bukan) normal/],t:'seluruh proses perbaikan pada jalur jaringan telah tuntas dan layanan internet di lokasi Anda sudah kembali berfungsi normal sepenuhnya',skip:['konfirmasi','up','sig','kwh-normal','normalkan']},
+ {id:'backbone-cut',n:'Backbone Cut / Gangguan Backbone',slot:'found',re:[/backbone/],t:'terjadi kerusakan fisik pada jalur kabel utama penghubung antarwilayah yang menjadi sumber layanan internet di area Anda, dan saat ini tim teknis pusat sedang fokus menangani titik kerusakannya',sup:['backbone-mt']},
+ {id:'backbone-mt',n:'Maintenance Backbone / Reroute Backbone',slot:'found',re:[/backbone/,/maintenance|re-?route|pemeliharaan/],t:'tim jaringan pusat sedang melakukan pemeliharaan dan pengalihan lalu lintas data pada jalur penghubung utama antarwilayah agar koneksi di area Anda tetap stabil',sup:['backbone-cut']},
+ {id:'feeder-cut',n:'Feeder Cut / Gangguan Feeder',slot:'found',re:[/feeder[^|.]{0,12}(cut|putus)|gangguan feeder/],t:'terjadi putus atau kerusakan pada jalur kabel utama yang menyalurkan koneksi dari pusat jaringan menuju kawasan perumahan atau area tempat tinggal Anda',sup:['kabel-putus']},
+ {id:'distribusi-cut',n:'Distribution Cut / Gangguan Distribusi',slot:'found',re:[/distribution cut|gangguan distribusi|distribusi[^|.]{0,12}(cut|putus)/],t:'terjadi gangguan fisik pada kabel distribusi yang bertugas membagi aliran sinyal internet ke beberapa titik tiang di lingkungan sekitar Anda',sup:['kabel-putus']},
+ {id:'dropcore-cut',n:'Access / Dropcore / Drop Cable Cut',slot:'found',re:[/(drop ?core|drop ?cable|access)[^|.]{0,20}(cut|putus|rusak)/],t:'kabel penghubung langsung yang ditarik dari tiang jaringan terdekat menuju ke bangunan/rumah Anda terdeteksi terputus atau mengalami kerusakan fisik',sup:['kabel-putus','core-putus','fdt-core']},
+ {id:'lastmile',n:'Last Mile Issue',slot:'found',re:[/last mile/],t:'hasil pengecekan menunjukkan kendala berada pada jalur sambungan akhir yang mengarah langsung masuk ke area bangunan Anda'},
+ {id:'bending',n:'Bending / Kabel Tertekuk',slot:'found',re:[/\bbending\b|tertekuk|bengkok/],t:'jalur kabel serat optik menuju lokasi Anda mengalami tekukan tajam atau terjepit sehingga aliran sinyal cahaya di dalamnya terhambat'},
+ {id:'patchcord',n:'Patchcord / Pigtail Rusak',slot:'found',re:[/(patch ?cord|pigtail)[^|.]{0,20}(rusak|putus|patah)/],t:'kabel penghubung pendek yang menancap langsung ke perangkat modem atau kotak sambungan di lokasi Anda mengalami kerusakan fisik'},
+ {id:'joint',n:'Joint Closure Rusak / Kemasukan Air',slot:'found',re:[/joint closure[^|.]{0,25}(rusak|bocor|air)|kemasukan air/],t:'kotak pelindung sambungan kabel di luar ruangan mengalami kerusakan atau kemasukan air sehingga mengganggu kualitas sambungan serat optik di dalamnya'},
+ {id:'fat-full',n:'FAT / ODP Full (Port Penuh)',slot:'found',re:[/fat full|fat penuh|odp full|odp penuh|port penuh/],t:'titik sambungan pada kotak pembagi jaringan di tiang terdekat sudah terisi penuh, sehingga tim perlu melakukan penataan ulang jalur untuk sambungan Anda'},
+ {id:'rogue',n:'Unregistered / Rogue ONT',slot:'found',re:[/unregistered|rogue/],t:'identitas perangkat modem di lokasi Anda tidak terbaca oleh sistem pusat sehingga perlu didaftarkan dan disinkronkan ulang'},
+ {id:'hewan',n:'Gangguan Hewan (Gigitan Tikus/Tupai)',slot:'cause',re:[/tikus|tupai|gigitan|digigit/],t:'lapisan pelindung kabel serat optik di jalur luar rusak akibat gigitan hewan sehingga serat optik di dalamnya terputus'},
+ {id:'kendur',n:'Kabel Kendur / Tertarik Kendaraan',slot:'cause',re:[/kendur|tertarik kendaraan|ditarik kendaraan|tersangkut/],t:'kabel udara yang melintang di jalan tersangkut kendaraan tinggi sehingga tertarik dan terputus dari tiang penyangganya'},
+ {id:'izin',n:'Koordinasi Izin Akses / Kawasan',slot:'prep',re:[/izin (akses|masuk|kawasan|gedung)|perizinan|koordinasi izin/],t:'tim lapangan sudah berada di sekitar area namun sedang mengurus izin akses masuk dengan pengelola lingkungan/gedung setempat sebelum memulai perbaikan',sup:['antri','jalan']},
+ {id:'ganti-patch',n:'Ganti Patchcord / Konektor / Roset',slot:'action',re:[/ganti (patch ?cord|konektor|pigtail|roset)|penggantian (patch ?cord|konektor|roset)/],t:'tim teknis sedang mengganti kabel penghubung, kotak sambungan dinding, atau ujung konektor pada modem agar sinyal kembali lancar',sup:['patchcord']},
+ {id:'perapihan',n:'Perapihan Kabel / Re-routing Jalur',slot:'action',re:[/perapihan kabel|merapikan kabel|re-?routing/],t:'tim lapangan sedang menata ulang posisi kabel yang tertekuk atau terjepit serta mengalihkannya ke jalur yang lebih aman agar sinyal mengalir optimal',sup:['bending']},
+ {id:'ftth',n:'Gangguan Jaringan FTTH',slot:'found',re:[/gangguan (jaringan )?ftth|ftth (down|bermasalah|terganggu)/],t:'terdapat kendala pada jalur jaringan kabel serat optik yang menyalurkan koneksi internet langsung hingga ke titik bangunan Anda'},
+ {id:'odc',n:'ODC (Optical Distribution Cabinet) Issue',slot:'found',re:[/odc[^|.]{0,20}(issue|rusak|gangguan|down|bermasalah)|gangguan odc/],t:'terjadi kendala teknis pada lemari/kotak pembagi jaringan utama yang melayani seluruh kawasan atau perumahan di sekitar Anda'},
+ {id:'odp-rusak',n:'ODP (Optical Distribution Point) / FAT Rusak',slot:'found',re:[/(odp|fat)[^|.]{0,15}(rusak|bocor|kemasukan air)/],t:'kotak pembagi sinyal yang terpasang di tiang terdekat dari bangunan Anda mengalami kerusakan fisik atau kemasukan air sehingga memengaruhi sambungan'},
+ {id:'splitter',n:'Passive Splitter Rusak / Loss',slot:'found',re:[/splitter/],t:'komponen pembagi jalur cahaya di dalam kotak jaringan tiang mengalami penurunan fungsi sehingga sinyal tidak terbagi sempurna ke jalur rumah Anda'},
+ {id:'pon-olt',n:'PON Port / Card OLT Rusak',slot:'found',re:[/pon port|port pon|card olt|olt card|slot olt|port olt/],t:'slot penghubung utama pada perangkat pemancar pusat di wilayah Anda mengalami gangguan perangkat keras dan sedang dalam penanganan tim pusat'},
+ {id:'roset',n:'Roset Optik / Terminal Box Rusak',slot:'found',re:[/roset|terminal box/],t:'kotak sambungan kecil yang terpasang di dinding dalam rumah/bangunan Anda sebagai titik masuk kabel luar mengalami kerusakan fisik',sup:['ganti-patch']},
+ {id:'konektor',n:'Adapter / Konektor SC/UPC/APC Kotor/Rusak',slot:'found',re:[/(konektor|connector|sc\/?(upc|apc))[^|.]{0,20}(kotor|rusak|longgar)|adapter sc/],t:'ujung kepala penyambung kabel optik yang menancap pada modem atau kotak dinding kotor atau longgar sehingga menghambat masuknya sinyal',sup:['ganti-patch']},
+ {id:'precon',n:'Kabel Precon / Indoor Cable Putus',slot:'found',re:[/precon|indoor cable|kabel indoor/],t:'jalur kabel serat optik bagian dalam yang ditarik dari dinding menuju perangkat modem Anda tertekuk parah atau terputus'},
+ {id:'adaptor-power',n:'Adaptor Power ONT/Modem Rusak',slot:'found',re:[/adapt[eo]r[^|.]{0,12}(power|ont|modem)[^|.]{0,12}rusak|adaptor (rusak|mati)|power adaptor/],t:'alat pengisi daya listrik (adaptor) milik perangkat modem di lokasi Anda rusak sehingga modem tidak dapat menyala'},
+ {id:'ont-hang',n:'ONT Hang / Overheat',slot:'found',re:[/ont[^|.]{0,10}(hang|overheat|panas)|overheat/],t:'perangkat modem di lokasi Anda mengalami kejenuhan sistem atau suhu berlebih sehingga perlu dimuat ulang dan diperiksa kondisinya',sup:['hang']},
+ {id:'bridge',n:'Bridge Mode / Router Pribadi Bermasalah',slot:'found',re:[/bridge mode|router pribadi|router sendiri/],t:'jalur sinyal utama dari jaringan kami sudah masuk dengan normal ke modem, namun terdapat kendala pengaturan pada perangkat router tambahan milik Anda'},
+ {id:'wifi',n:'Wi-Fi Interference / Channel Padat',slot:'found',re:[/wi-?fi interference|interferensi wi-?fi|channel padat/],t:'koneksi kabel utama sudah normal, namun pancaran sinyal nirkabel (Wi-Fi) di dalam ruangan mengalami gangguan gelombang atau terhalang sekat dinding'},
+ {id:'bw-full',n:'Bandwidth / Traffic Penuh (Local)',slot:'found',re:[/traffic penuh|bandwidth penuh|bandwidth lokal|local traffic/],t:'jalur utama dalam kondisi normal, namun kapasitas pemakaian internet di dalam lokasi Anda sedang digunakan secara bersamaan oleh banyak perangkat sehingga terasa melambat'},
+ {id:'banjir',n:'Banjir / Cuaca Ekstrem',slot:'cause',re:[/banjir|cuaca ekstrem|genangan/],t:'kondisi cuaca ekstrem atau genangan air di sekitar jalur jaringan berdampak pada perangkat luar ruangan dan menghambat proses akses perbaikan tim'},
+ {id:'eskalasi',n:'Eskalasi Tim Backbone / Core',slot:'prep',re:[/eskalasi (tim )?(backbone|core)/],t:'penanganan kendala telah diteruskan kepada tim spesialis jaringan utama karena titik gangguan berada pada jalur infrastruktur induk',sup:['antri','jalan']},
+ {id:'reaktivasi',n:'Re-aktivasi / Konfigurasi Ulang ONT',slot:'action',re:[/re-?aktivasi|konfigurasi ulang|re-?konfigurasi/],t:'tim kami sedang melakukan pengaturan dan pendaftaran ulang sistem pada perangkat modem Anda agar kembali mengenali jaringan'}
 ];
+
+/* Kata kunci pencarian. [kw = frasa spesifik (dipakai juga saat menempel laporan), syn = sebutan sehari-hari (khusus pencarian)] */
+const TR_CATS=['Segmen jaringan','Infrastruktur FTTH & perangkat','Temuan gangguan','Penyebab','Posisi tim','Tindakan perbaikan','Status akhir'];
+const TR_INFRA=['ftth','odc','odp-rusak','splitter','pon-olt','roset','konektor','precon','adaptor-power','ont-hang','bridge','wifi','bw-full'];
+const TR_SEG=['backbone-cut','backbone-mt','feeder-cut','distribusi-cut','dropcore-cut','lastmile'];
+const TR_META={
+ 'backbone-cut':[['backbone cut','gangguan backbone','backbone putus'],['kabel utama antarwilayah','antar wilayah','jalur utama','kabel pusat']],
+ 'backbone-mt':[['maintenance backbone','reroute backbone','re-route backbone','pemeliharaan backbone'],['pemeliharaan jaringan','pengalihan','perawatan jaringan']],
+ 'feeder-cut':[['feeder cut','gangguan feeder','feeder putus'],['kabel utama perumahan','kabel primer','kawasan']],
+ 'distribusi-cut':[['distribution cut','gangguan distribusi','distribusi putus'],['kabel distribusi','kabel tiang','sekunder']],
+ 'dropcore-cut':[['dropcore cut','drop core cut','dropcore putus','drop cable cut','access cut'],['kabel rumah putus','kabel ke rumah','kabel masuk rumah','kabel drop','kabel dari tiang ke rumah']],
+ 'lastmile':[['last mile'],['sambungan akhir','kabel masuk bangunan','kendala di rumah pelanggan']],
+ 'branch-modem':[[],['modem mati kabel cabang','cabang putus modem offline']],
+ 'branch':[['branch putus','kabel cabang putus'],['kabel cabang','jalur cabang']],
+ 'modem-off':[['modem mati','ont mati','onu mati','ont offline','onu offline','modem offline'],['modem tidak terhubung','modem off','tidak konek','offline']],
+ 'los':[['loss of signal','lampu los','los merah'],['los','lampu merah','sinyal tidak masuk','tidak ada sinyal','modem menyala tapi tidak ada internet']],
+ 'fdt-core':[['core putus di fdt','core fdt putus'],['kotak distribusi','fdt','core fdt']],
+ 'core-putus':[['core putus','serat putus','core fo putus'],['serat optik putus','inti kabel']],
+ 'kabel-putus':[['kabel putus','fo putus','fo cut','fiber putus','kabel fo putus','kabel optik putus'],['putus','kabel rusak','kabel terputus','fiber cut']],
+ 'unmonitor':[['unmonitor','tidak terpantau','un monitor'],['tidak terbaca sistem','olt tidak terbaca']],
+ 'indikasi-olt':[['indikasi olt hang'],['olt bermasalah','indikasi gangguan']],
+ 'hang':[['olt hang','router hang','device hang','perangkat hang'],['hang','macet','nge-hang','olt macet','tidak merespons']],
+ 'kwh':[['kwh trip','listrik padam','power outage','power off'],['listrik mati','mati listrik','pln padam','listrik trip','kwh','gardu']],
+ 'loss-otdr':[[],['loss otdr','redaman otdr','sinyal terputus di tengah']],
+ 'fat-loss':[['fat loss'],['fat','kotak pembagi','sinyal terhenti di tiang']],
+ 'feeder-down':[['feeder port down'],['port down','port mati','port feeder']],
+ 'high-att':[['high attenuation','redaman high','attenuation high','bad rx','redaman tinggi'],['redaman','sinyal lemah','sinyal melemah','putus nyambung','putus-putus','rx jelek','attenuation','lambat']],
+ 'ip-conflict':[['ip conflict','dhcp error','dhcp'],['ip bentrok','alamat ip sama','tidak dapat ip','dhcp gagal']],
+ 'bending':[['bending','kabel tertekuk','kabel bengkok','tertekuk'],['kabel ditekuk','kabel terjepit','kabel patah','tikungan tajam']],
+ 'patchcord':[['patchcord rusak','pigtail rusak','patch cord rusak'],['patchcord','pigtail','kabel pendek rusak','kabel penghubung modem']],
+ 'joint':[['joint closure rusak','kemasukan air','jc rusak'],['joint closure','jc','kotak sambungan bocor','air masuk']],
+ 'fat-full':[['fat full','port penuh','fat penuh'],['port habis','kotak penuh','tidak ada port']],
+ 'rogue':[['unregistered','rogue ont','rogue'],['ont tidak terdaftar','modem belum terdaftar','daftar ulang modem']],
+ 'kebakaran':[['kebakaran','terbakar'],['api','ada kebakaran']],
+ 'kejepit':[['kejepit kaset','closure pinch','kaset kejepit'],['kejepit','kaset','kabel terjepit di closure']],
+ 'vandal':[['vandalisme','kabel dipotong','kabel terpotong','vandal'],['dipotong orang','pencurian kabel','perusakan','ulah orang','kabel dicuri']],
+ 'pohon':[['pohon tumbang','pohon roboh'],['pohon','dahan','tumbang','roboh','tiang roboh','cuaca buruk','angin kencang']],
+ 'galian':[['galian pihak ke-3','galian pihak ketiga','pihak ketiga','pekerjaan galian'],['galian','proyek','alat berat','pihak lain']],
+ 'hewan':[['gigitan tikus','gigitan tupai','digigit tikus','digigit tupai'],['tikus','tupai','hewan','gigitan','kabel digigit']],
+ 'kendur':[['kabel kendur','tertarik kendaraan','ditarik kendaraan','tersangkut kendaraan'],['kendur','kabel melintang','truk','kendaraan tinggi','kabel tersangkut']],
+ 'antri':[['antrean pengecekan','antri pengecekan','masih antri'],['antre','antrian','menunggu giliran','menunggu tim','belum ada tim']],
+ 'jalan':[['dalam perjalanan','menuju lokasi','tim jalan'],['tim berangkat','berangkat','otw','tim menuju','tim meluncur']],
+ 'tiba':[['tim tiba','tiba di lokasi','sudah tiba'],['tim sampai','tim di lokasi','sudah sampai','tim datang']],
+ 'cek-fdt':[['pengecekan di fdt','pengecekan di fat','cek fdt','cek fat'],['periksa kotak distribusi','buka fdt','buka fat','fdt','fat']],
+ 'izin':[['izin akses','koordinasi izin','perizinan','izin masuk','izin kawasan'],['izin','pengelola gedung','satpam','kawasan tertutup','izin gedung','izin perumahan','menunggu izin']],
+ 'cek':[['check on site','cek di lokasi','cek langsung'],['pengecekan','pemeriksaan','cek lapangan','survei']],
+ 'cek-detail':[['lampu indikator','source power','status link'],['cek lampu','cek listrik','cek link','periksa modem']],
+ 'perbaikan-lap':[[],['perbaikan cabang','sambung kabel cabang']],
+ 'otdr':[['otdr','tracing process'],['ukur kabel','alat ukur','cari titik putus','pengukuran']],
+ 'tracing':[['tracing','menelusuri'],['telusuri kabel','susur kabel','mencari titik','susur jalur']],
+ 'splice':[['rejoint','rejoin','splicing','sambung ulang','re-joint'],['menyambung','sambung kabel','penyambungan','sambung fiber','joint']],
+ 'tarik':[['penarikan kabel','tarik kabel','re-pulling','repulling','menarik kabel'],['kabel baru','tarik ulang','ganti kabel','gelar kabel','tarik dropcore']],
+ 'material':[['material dibutuhkan','matrial dibutuhkan'],['material','suku cadang','ambil material','butuh material','menunggu material']],
+ 'kwh-normal':[['kwh trip dinormalkan'],['listrik normal','listrik sudah nyala','listrik hidup','listrik kembali']],
+ 'normalkan':[['process in progress','proses penormalan'],['penormalan','normalisasi','proses pemulihan','sedang dinormalkan']],
+ 'reboot':[['remote reboot','refresh port','reboot'],['restart modem','segarkan','refresh','reset port','reboot jarak jauh']],
+ 'ganti-ont':[['ganti ont','ganti modem','replacement device','penggantian modem','penggantian ont'],['modem rusak','tukar modem','modem baru','ont rusak','replacement']],
+ 'ganti-patch':[['ganti patchcord','ganti konektor','ganti pigtail','penggantian patchcord'],['konektor','ganti kabel pendek','konektor rusak']],
+ 'perapihan':[['perapihan kabel','re-routing','rerouting','merapikan kabel'],['rapikan kabel','tata ulang kabel','alihkan jalur','pindah jalur','kabel berantakan']],
+ 'up':[['kembali up','sudah up','link up'],['up','menyala kembali','sudah menyala','tersambung kembali','online kembali','kembali online']],
+ 'konfirmasi':[[],['user normal','pelanggan konfirmasi normal','konfirmasi normal']],
+ 'monitoring':[['monitoring','dipantau'],['pantau','observasi','pemantauan','masih dipantau']],
+ 'normal':[[],['selesai','clear','tuntas','sudah normal','beres','sudah clear','perbaikan selesai','closed']]
+};
+Object.assign(TR_META,{
+ 'ftth':[['gangguan ftth','gangguan jaringan ftth','ftth down'],['ftth','fiber to the home','fiber ke rumah','jaringan fiber','jaringan fiber optik','internet fiber']],
+ 'odc':[['odc issue','gangguan odc','odc rusak'],['odc','lemari jaringan','kotak pembagi utama','kabinet','cabinet']],
+ 'odp-rusak':[['odp rusak','fat rusak'],['odp','fat','kotak pembagi tiang','odp bocor']],
+ 'splitter':[['splitter'],['pembagi cahaya','passive splitter','splitter loss','splitter rusak']],
+ 'pon-olt':[['pon port','card olt','port pon','slot olt'],['port olt','olt rusak','kartu olt','pon','perangkat pusat rusak']],
+ 'roset':[['roset','terminal box'],['roset optik','roset rusak','kotak dinding','kotak sambungan dinding']],
+ 'konektor':[['konektor kotor','konektor rusak','konektor longgar'],['sc upc','sc apc','adapter','konektor','ujung kabel kotor','kepala kabel']],
+ 'precon':[['precon','indoor cable','kabel indoor'],['kabel dalam rumah','kabel dalam','kabel putus di dalam rumah']],
+ 'adaptor-power':[['adaptor rusak','power adaptor','adaptor power rusak'],['adaptor','charger modem','modem tidak menyala','modem tidak nyala','adaptor mati']],
+ 'ont-hang':[['ont hang','ont overheat','overheat'],['modem panas','modem hang','modem nge-hang','modem macet','suhu modem']],
+ 'bridge':[['bridge mode','router pribadi','router sendiri'],['bridge','router tambahan','router pelanggan','router sendiri bermasalah']],
+ 'wifi':[['wifi interference','wi-fi interference','interferensi wifi','channel padat'],['wifi lemah','wifi lambat','sinyal wifi','wifi terhalang','wifi','wi-fi']],
+ 'bw-full':[['traffic penuh','bandwidth penuh','local traffic'],['banyak perangkat','kapasitas penuh','lambat banyak device','pemakaian banyak perangkat','bandwidth']],
+ 'banjir':[['banjir','cuaca ekstrem','genangan'],['hujan deras','air tergenang','badai','cuaca']],
+ 'eskalasi':[['eskalasi backbone','eskalasi core','eskalasi tim backbone'],['eskalasi','tim backbone','tim core','tim spesialis']],
+ 'reaktivasi':[['reaktivasi','re-aktivasi','konfigurasi ulang','rekonfigurasi'],['daftar ulang modem','setting ulang modem','konfigurasi ont','provisioning ulang']]
+});
+TR_META['cek-fdt'][0].push('cek odc','cek odp','pengecekan di odc','pengecekan di odp');
+TR_META['fat-full'][0].push('odp full','odp penuh');
+TR_META['ganti-patch'][0].push('ganti roset','penggantian roset');
+TR_META['fat-full'][1].push('odp full');
+
+TR_RULES.forEach(r=>{
+  const m=TR_META[r.id]||[[],[]];r.kw=m[0];r.syn=m[1];
+  r.cat=TR_SEG.includes(r.id)?0:TR_INFRA.includes(r.id)?1:({prep:4,action:5,result:6,cause:3})[r.slot]??2;
+  r.kwre=r.kw.length?new RegExp('(?:^|[^a-z0-9])(?:'+r.kw.map(k=>k.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|')+')(?![a-z0-9])'):null;
+});
+const trSN=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const TR_STOP=new Set(['yang','di','ke','dan','pada','itu','ini','sedang','ada','dari','untuk','saya','pelanggan','mau','apa','dengan','karena','sudah','belum','tidak','atau']);
+const TR_NOSTOP=new Set(['tidak','belum','sudah']);
+function trLev(a,b,max){
+  if(Math.abs(a.length-b.length)>max)return max+1;
+  let prev=Array.from({length:b.length+1},(_,i)=>i),prev2=prev;
+  for(let i=1;i<=a.length;i++){
+    const cur=[i];let mn=i;
+    for(let j=1;j<=b.length;j++){let v=Math.min(prev[j]+1,cur[j-1]+1,prev[j-1]+(a[i-1]===b[j-1]?0:1));if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])v=Math.min(v,prev2[j-2]+1);cur[j]=v;if(v<mn)mn=v}
+    if(mn>max)return max+1;prev2=prev;prev=cur;
+  }
+  return prev[b.length];
+}
+
+/* Kombinasi istilah gabungan yang sering muncul di tiket: semua kelompok kata harus ada di pencarian */
+const TR_COMBO=[
+ {id:'ftth-backbone',n:'FTTH + Backbone',g:[['ftth','fiber to the home','fiber ke rumah'],['backbone','kabel induk','antarwilayah','antar wilayah']],t:'Layanan jaringan fiber optik menuju rumah Anda saat ini sedang terdampak gangguan pada jalur kabel induk utama antarwilayah, dan tim teknis kami sedang melakukan penanganan menyeluruh untuk memulihkan koneksi di area Anda.'},
+ {id:'ftth-feeder',n:'FTTH + Feeder',g:[['ftth','fiber to the home','fiber ke rumah'],['feeder']],t:'Layanan jaringan fiber optik menuju rumah Anda saat ini sedang terdampak gangguan pada jalur kabel utama yang menyalurkan koneksi dari pusat jaringan ke kawasan Anda, dan tim teknis kami sedang melakukan penanganan untuk memulihkan koneksi.'},
+ {id:'ftth-distribusi',n:'FTTH + Distribusi',g:[['ftth','fiber to the home','fiber ke rumah'],['distribusi','distribution']],t:'Layanan jaringan fiber optik menuju rumah Anda saat ini sedang terdampak gangguan pada kabel distribusi di lingkungan sekitar Anda, dan tim teknis kami sedang melakukan penanganan untuk memulihkan koneksi.'},
+ {id:'ftth-dropcore',n:'FTTH + Dropcore',g:[['ftth','fiber to the home','fiber ke rumah'],['dropcore','drop core','drop cable','access']],t:'Layanan jaringan fiber optik menuju rumah Anda saat ini terdampak gangguan pada kabel penghubung dari tiang terdekat ke bangunan Anda, dan tim teknis kami sedang melakukan penanganan untuk memulihkan koneksi.'},
+ {id:'ftth-odc',n:'FTTH + ODC / ODP',g:[['ftth','fiber to the home','fiber ke rumah'],['odc','odp','fat']],t:'Layanan jaringan fiber optik menuju rumah Anda saat ini sedang terdampak kendala pada kotak pembagi jaringan di lingkungan Anda, dan tim teknis kami sedang melakukan penanganan untuk memulihkan koneksi.'},
+ {id:'backbone-los',n:'Backbone + LOS',g:[['backbone'],['los','loss of signal']],t:'Modem Anda menyala namun tidak menerima sinyal internet karena terjadi kerusakan pada jalur kabel utama antarwilayah, dan tim teknis pusat sedang fokus menangani titik kerusakannya.'}
+];
+function trCombos(qn){
+  const pad=' '+qn+' ';
+  return TR_COMBO.filter(c=>c.g.every(g=>g.some(t=>pad.includes(' '+trSN(t)+' '))));
+}
+let TR_ENT=null;
+function trEntries(){
+  if(TR_ENT)return TR_ENT;
+  const seen=new Set();TR_ENT=[];
+  TR_RULES.forEach(r=>{
+    if(seen.has(r.n))return;seen.add(r.n);
+    const terms=[...r.kw,...r.syn].map(trSN),nm=trSN(r.n),tx=trSN(r.t);
+    const words=new Set([...nm.split(' '),...terms.join(' ').split(' ')].filter(w=>w.length>1));
+    TR_ENT.push({r,nm,terms,tx,words:[...words]});
+  });
+  return TR_ENT;
+}
+/* Pencarian: kecocokan frasa, awalan kata, dan salah ketik ringan. Mengembalikan {list,exact} */
+function trCover(toks,cat){
+  const parts=[];let i=0;
+  while(i<toks.length){
+    let got=null;
+    for(let n=toks.length-i;n>=1;n--){
+      const r=trSearch(toks.slice(i,i+n).join(' '),cat,true);
+      if(r.exact&&r.list.length&&(r.tp>=70||(n===1&&r.pp>=9))){got={r:r.list[0],n};break}
+    }
+    if(got){if(!parts.includes(got.r))parts.push(got.r);i+=got.n}else i++;
+  }
+  return parts;
+}
+function trSearch(q,cat,nosplit){
+  const E=trEntries().filter(e=>cat<0||e.r.cat===cat);
+  const qn=trSN(q);
+  if(!qn)return{list:cat<0?[]:E.map(e=>e.r),exact:true};
+  let toks=qn.split(' ').filter(w=>w.length>1&&!TR_STOP.has(w));
+  if(!toks.length)toks=qn.split(' ').filter(w=>w.length>1);
+  if(!toks.length)toks=[qn];
+  const sc=E.map(e=>{
+    let phrase=0;
+    if(e.terms.includes(qn)||e.nm===qn)phrase=100;
+    else if(e.nm.startsWith(qn))phrase=75;
+    else if(e.nm.includes(qn))phrase=70;
+    else if(e.terms.some(t=>t.length>2&&t.includes(qn)))phrase=60;
+    else if(e.terms.some(t=>t.length>5&&qn.includes(t)))phrase=55;
+    else if(qn.length>=6&&e.terms.some(t=>t.length>=6&&trLev(qn,t,2)<=2))phrase=80;
+    let hit=0,pts=0;
+    toks.forEach(t=>{
+      let b=0;
+      e.words.forEach(w=>{
+        if(w===t)b=Math.max(b,12);
+        else if(t.length>=3&&w.startsWith(t))b=Math.max(b,9);
+        else if(t.length>=4&&w.length>=4&&t[0]===w[0]&&trLev(t,w,t.length>=8?2:1)<=(t.length>=8?2:1))b=Math.max(b,6);
+      });
+      if(!b&&t.length>=4&&e.tx.includes(t))b=3;
+      if(b){hit++;pts+=b}
+    });
+    return{r:e.r,phrase,hit,pts,w:e.words.length,all:hit===toks.length};
+  });
+  let ok=sc.filter(x=>x.all||x.phrase);
+  let exact=true;
+  const tp=ok.length?ok[0].phrase:0;
+  if(!nosplit&&toks.length>1&&tp<70){const parts=trCover(toks,cat);if(parts.length>1)return{list:parts,exact:true,parts}}
+  if(!ok.length){ok=sc.filter(x=>x.hit>0&&x.pts>=6);exact=false}
+  ok.sort((a,b)=>(b.phrase+b.pts)-(a.phrase+a.pts)||a.w-b.w);
+  return{list:ok.slice(0,12).map(x=>x.r),exact,tp:ok.length?ok[0].phrase:0,pp:ok.length?ok[0].pts:0};
+}
+const trSent=r=>trCap(r.t)+'.';
+const trCard=(id,n,tag,txt,kind)=>`<div class="trr${kind?' '+kind:''}"><div class="trrh"><b>${esc(n)}</b><span class="badge mut">${esc(tag)}</span></div><div class="trrt">${esc(txt)}</div><div class="tools"><button class="btn pri chip" data-a="trpick" data-id="${esc(id)}">Tambahkan ke kalimat</button><button class="btn chip" data-a="trcp1" data-id="${esc(id)}">Salin</button></div></div>`;
+function trTextFor(id){
+  if(id.startsWith('combo:')){const c=TR_COMBO.find(x=>x.id===id.slice(6));return c?c.t:''}
+  if(id.startsWith('mix:')){const M=id.slice(4).split(',').map(i=>TR_RULES.find(r=>r.id===i)).filter(Boolean);return M.length?trCompose(M).replace(new RegExp('\\s*'+TR_WAIT.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$'),''):''}
+  const r=TR_RULES.find(x=>x.id===id);return r?trSent(r):'';
+}
+function trResHTML(){
+  const q=S.tr.q||'',cat=S.tr.cat==null?-1:S.tr.cat;
+  const res=trSearch(q,cat);
+  if(!trSN(q)&&cat<0){
+    const sug=['LOS','ftth backbone','ONU offline','feeder cut','KWH trip','OTDR','splicing','FAT full','high attenuation','tim tiba','monitoring'];
+    return `<p class="hint" style="margin:2px 0 8px">Contoh yang sering dicari:</p><div class="pills">${sug.map(x=>`<button class="chip" data-a="trq" data-q="${esc(x)}">${esc(x)}</button>`).join('')}</div>`;
+  }
+  let h='';
+  const cb=trSN(q)?trCombos(trSN(q)):[];
+  cb.forEach(c=>{h+=trCard('combo:'+c.id,c.n,'Gabungan',c.t,'mix')});
+  if(res.parts&&!cb.length){
+    h+=`<p class="hint" style="margin:0 0 8px">Ada ${res.parts.length} istilah dari kata kunci Anda. Kalimat gabungan dan kalimat terpisah ada di bawah.</p>`;
+    h+=trCard('mix:'+res.parts.map(r=>r.id).join(','),res.parts.map(r=>r.n).join(' + '),'Gabungan',trTextFor('mix:'+res.parts.map(r=>r.id).join(',')),'mix');
+  }else if(res.parts){h+=`<p class="hint" style="margin:0 0 8px">Kalimat terpisah:</p>`}
+  if(!res.list.length&&!cb.length)return `<p class="hint">Tidak ada istilah yang cocok untuk <b>${esc(q)}</b>. Coba istilah lain dari laporan, misalnya "LOS" atau "feeder cut", atau pilih kategori di atas.</p>`;
+  if(!res.exact)h+=`<p class="hint" style="margin:0 0 8px">Tidak ada yang persis cocok. Ini yang paling mendekati:</p>`;
+  return h+res.list.map(r=>trCard(r.id,r.n,TR_CATS[r.cat],trSent(r))).join('');
+}
+function trResPaint(){const el=$('#trRes');if(el)el.innerHTML=trResHTML();document.querySelectorAll('[data-a="trcat"]').forEach(b=>b.classList.toggle('on',+b.dataset.i===(S.tr.cat==null?-1:S.tr.cat)))}
+
 function trCli(txt){
   if(!/receive power|optical/i.test(txt))return null;
   const m=txt.match(/(-?\d+(?:\.\d+)?)[ \t]+(-?\d+(?:\.\d+)?)[ \t]+(-?\d+(?:\.\d+)?)[ \t]+(-?\d+(?:\.\d+)?)[ \t]+(-?\d+(?:\.\d+)?)[ \t]*$/m);
@@ -973,30 +1222,14 @@ function trUnknown(txt){
   txt.split(/\n/).forEach(l=>{
     const ln=l.trim().toLowerCase().replace(/[–—]/g,'-');
     if(ln.length<12||(ln.match(/[a-z]/g)||[]).length<8||TR_SKIPLN.test(ln))return;
-    if(TR_RULES.some(r=>r.re[0].test(ln))||TR_INTERNAL.test(ln))return;
+    if(TR_RULES.some(r=>r.re[0].test(ln)||(r.kwre&&r.kwre.test(ln)))||TR_INTERNAL.test(ln))return;
     const k=ln.replace(/\s+/g,' ').slice(0,120);
     if(!out.includes(k))out.push(k);
   });
   return out.slice(0,8);
 }
 const trCap=s=>s.charAt(0).toUpperCase()+s.slice(1);
-function trTranslate(raw){
-  const txt=String(raw||'');
-  const N=txt.toLowerCase().replace(/[–—]/g,'-').replace(/\s*\n\s*/g,' | ').replace(/[ \t_]+/g,' ').trim();
-  if(!N)return{text:'',unk:[],hit:[],state:'empty'};
-  const letters=(txt.match(/[a-zA-Z]/g)||[]).length,words=(txt.match(/[a-zA-Z]{3,}/g)||[]).length;
-  if(/[\u0000-\u0008\u000e-\u001f\ufffd]/.test(txt)||words<2||letters<txt.replace(/\s/g,'').length*0.35)return{text:'',unk:[],hit:[],state:'invalid'};
-  let M=TR_RULES.filter(r=>r.re.every(x=>x.test(N))&&!(r.not||[]).some(x=>x.test(N)));
-  const cli=trCli(txt);if(cli)M.push(cli);
-  const sup=new Set();M.forEach(r=>(r.sup||[]).forEach(i=>sup.add(i)));
-  M=M.filter(r=>!sup.has(r.id));
-  const ids=new Set(M.map(r=>r.id));
-  M=M.filter(r=>!(r.skip||[]).some(i=>ids.has(i)));
-  const unk=trUnknown(txt);
-  if(!M.length){
-    if(TR_INTERNAL.test(N))return{text:'',unk:[],hit:[],state:'internal'};
-    return{text:TR_GENERIC,unk,hit:[],state:'unknown'};
-  }
+function trCompose(M){
   const has=i=>M.some(r=>r.id===i);
   const by=s=>M.filter(r=>r.slot===s).map(r=>r.t);
   const prep=by('prep'),found=by('found'),cause=by('cause'),act=by('action'),res=by('result'),ind=by('ind');
@@ -1017,7 +1250,26 @@ function trTranslate(raw){
     else if(!res.length&&done)S.push('Silakan dicek kembali layanannya, dan kabari kami jika masih terkendala.');
     else if(!res.length)S.push(TR_WAIT);
   }
-  return{text:S.join(' '),unk,hit:M.map(r=>r.n),state:'ok'};
+  return S.join(' ');
+}
+function trTranslate(raw){
+  const txt=String(raw||'');
+  const N=txt.toLowerCase().replace(/[–—]/g,'-').replace(/\s*\n\s*/g,' | ').replace(/[ \t_]+/g,' ').trim();
+  if(!N)return{text:'',unk:[],hit:[],state:'empty'};
+  const letters=(txt.match(/[a-zA-Z]/g)||[]).length,words=(txt.match(/[a-zA-Z]{3,}/g)||[]).length;
+  if(/[\u0000-\u0008\u000e-\u001f\ufffd]/.test(txt)||words<2||letters<txt.replace(/\s/g,'').length*0.35)return{text:'',unk:[],hit:[],state:'invalid'};
+  let M=TR_RULES.filter(r=>(r.re.every(x=>x.test(N))||(r.kwre&&r.kwre.test(N)))&&!(r.not||[]).some(x=>x.test(N)));
+  const cli=trCli(txt);if(cli)M.push(cli);
+  const sup=new Set();M.forEach(r=>(r.sup||[]).forEach(i=>sup.add(i)));
+  M=M.filter(r=>!sup.has(r.id));
+  const ids=new Set(M.map(r=>r.id));
+  M=M.filter(r=>!(r.skip||[]).some(i=>ids.has(i)));
+  const unk=trUnknown(txt);
+  if(!M.length){
+    if(TR_INTERNAL.test(N))return{text:'',unk:[],hit:[],state:'internal'};
+    return{text:TR_GENERIC,unk,hit:[],state:'unknown'};
+  }
+  return{text:trCompose(M),unk,hit:M.map(r=>r.n),state:'ok'};
 }
 const TR_TIME=/\b(jam|menit|detik|hari|pukul|wib|wita|wit|segera|sebentar lagi|estimasi|target|maksimal|besok|nanti malam)\b/i;
 function trGuardMsg(v){
@@ -1054,7 +1306,7 @@ let BASE={cards:SEED_CARDS,contacts:SEED_CONTACTS};
 var SYNC={on:false,rev:0,snap:null,busy:false,timer:null};
 const save=()=>{try{localStorage.setItem(CONFIG.KEY,JSON.stringify(DB));if(typeof UIREADY!=='undefined'&&UIREADY)pulse('Tercatat','ok')}catch(e){}try{syncPush()}catch(e){}};
 const clone=o=>JSON.parse(JSON.stringify(o));
-const S={role:null,view:'home',caseId:null,ans:{},fields:{},checks:{},open:{pendaftaran:false,gangguan:false,produk:false,pembayaran:false,perubahan:false,mitra:false},pr:{region:'sumkal'},bt:{prog:'extra',region:'jawabali'},bz:{region:'jawabali'},pk:{prog:'tb'},bh:{prog:'reg',region:'sumatera'},ao:{prog:'sh'},pe:{prog:'new',region:'sumkal'},sg:{type:'pre',t:[]},kn:{g:'bank',c:'mandiri',a:0,t:[]},kd:{c:'tidak',r:'ok',t:[]},showUsang:false,tr:{inp:'',out:'',unk:[]},navOpen:false,modal:null,hit:0,results:[]};
+const S={role:null,view:'home',caseId:null,ans:{},fields:{},checks:{},open:{pendaftaran:false,gangguan:false,produk:false,pembayaran:false,perubahan:false,mitra:false},pr:{region:'sumkal'},bt:{prog:'extra',region:'jawabali'},bz:{region:'jawabali'},pk:{prog:'tb'},gw:{prog:'dreams'},bh:{prog:'reg',region:'sumatera'},ao:{prog:'sh'},pe:{prog:'new',region:'sumkal'},sg:{type:'pre',t:[]},kn:{g:'bank',c:'mandiri',a:0,t:[]},kd:{c:'tidak',r:'ok',t:[]},showUsang:false,tr:{inp:'',out:'',unk:[]},navOpen:false,modal:null,hit:0,results:[]};
 S.pl={c:{},d:'',t:[]};
 const DESK=()=>matchMedia('(min-width:901px)').matches;
 Object.keys(S.open).forEach(g=>S.open[g]=DESK());
@@ -1114,6 +1366,7 @@ async function copyText(txt){
   try{const a=document.createElement('textarea');a.value=txt;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();const ok=document.execCommand('copy');a.remove();return ok}catch(e){return false}
 }
 const IC={
+ trophy:'<path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 6H5v1a3 3 0 0 0 3 3M16 6h3v1a3 3 0 0 1-3 3M12 13v4M10 17h4M9 20h6"/>',
  layers:'<path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 13 9 5 9-5M3 17.5l9 5 9-5"/>',
  puzzle:'<path d="M10 4a2 2 0 0 1 4 0v2h4v4h-2a2 2 0 0 0 0 4h2v5H4V6h6V4z"/>',
  notes:'<path d="M5 4h14v16H5z"/><path d="M8.5 9h7M8.5 13h7M8.5 17h4"/>',
@@ -1520,7 +1773,7 @@ function viewCardRaw(c,preview){
   if(c.tool==='pdft')return viewPdfTool(c);
   if(c.tool==='kendala')return viewKendala(c);
   if(c.tool==='translate')return viewTranslator(c);
-  const INFO={produk:[viewProduk,'Informasi — Produk'],btl:[viewBtl,'Informasi — Produk'],biz:[viewBiz,'Informasi — Produk'],khusus:[viewPk,'Informasi — Produk'],bhma:[viewBhma,'Informasi — Produk'],addon:[viewAddOn,'Informasi — Produk'],peks:[viewPe,'Informasi — Produk'],siklus:[viewSiklus,'Informasi — Billing'],kanal:[viewKanal,'Informasi — Billing']};
+  const INFO={produk:[viewProduk,'Informasi — Produk'],btl:[viewBtl,'Informasi — Produk'],biz:[viewBiz,'Informasi — Produk'],khusus:[viewPk,'Informasi — Produk'],gw:[viewGw,'Informasi — Produk'],bhma:[viewBhma,'Informasi — Produk'],addon:[viewAddOn,'Informasi — Produk'],peks:[viewPe,'Informasi — Produk'],siklus:[viewSiklus,'Informasi — Billing'],kanal:[viewKanal,'Informasi — Billing']};
   if(INFO[c.tool]){
     const [fn,kat]=INFO[c.tool];const h=fn(c);
     const box=`<div class="box"><div class="subt">Jika pelanggan hanya bertanya informasi (bukan tindak lanjut keluhan atau gangguan)</div>${tkHTML(tk(kat,'Closed by CSO','tutup'))}</div>`;
@@ -1620,7 +1873,7 @@ const BT_SPD=[10,20,35,50,100];
 const BT_CB={"jawabali": [[129000, 149000, 199000, 249000, 329000], [385000, 445000, 579000, 729000, 979000]], "sumkal": [[139000, 169000, 219000, 259000, 399000], [415000, 445000, 649000, 749000, 1150000]], "indotim": [[149000, 179000, 269000, 359000, 599000], [445000, 535000, 749000, 949000, 1590000]], "ntt": [[189000, 249000, 369000, 479000, 839000], [495000, 695000, 1105000, 1429000, 2509000]], "natuna": [[null, null, null, null, null], [null, null, null, null, null]]};
 const BT_PROG=[{"id": "extra", "n": "Extra No Debat", "st": "Berlaku", "price": true, "ring": [["Produk", "ICONNET Extra No Debat-3 (bandwidth 10, 20, 35, 50, 100 Mbps)"], ["Promo", "Program rebranding SERU dengan diskon hingga 23% untuk promo bundling 3 bulan yang berlaku 12 bulan (bukan 12 kali periode). Bulan ke-4 sampai bulan ke-12 dikenakan harga promo Extra No Debat Bulanan."], ["Biaya instalasi", "Gratis"], ["Wilayah", "Seluruh regional (fokus/prioritas target area pemasaran: TUR rendah, kompetisi tinggi)"], ["Periode", "On going"]], "syarat": ["Hanya berlaku untuk calon pelanggan baru di cluster khusus sesuai mapping SBU.", "Bandwidth 10, 20, 35, 50, 100 Mbps.", "Program tidak dipromosikan secara masif, hanya ditawarkan oleh Sales SBU melalui telemarketing, visit on site, atau kanal lain.", "Permohonan berlangganan tetap melalui proses profiling dan filtering berdasarkan ID PLN sesuai kebijakan yang berlaku.", "Pelanggan difasilitasi menggunakan ONT dismantle.", "Pelanggan dikenakan harga reguler apabila melakukan upgrade/downgrade.", "Harga bulanan khusus hanya untuk 12 bulan pertama, setelahnya kembali ke harga normal."], "aju": ["Sales SBU / program ICONNET Extra No Debat, khusus calon pelanggan terpilih.", "Sarankan pelanggan menghubungi Tim ICONNET yang menawarkan program tersebut."]}, {"id": "ry", "n": "Retention Yearly", "st": "Berlaku", "tag": "Bad debt", "ring": [["Diskon", "20%–30%"], ["Rincian", "Diskon 30% apabila bayar bundling 12 bulan.\nDiskon 25% apabila bayar bundling 6 bulan.\nDiskon 20% apabila bayar 1 bulan dahulu."], ["Masa diskon", "12 bulan"], ["Biaya instalasi", "Tidak ada"], ["Wilayah", "Seluruh regional"], ["Periode", "On going"]], "syarat": ["Bad debt lebih dari 14 hari dan sudah lebih dari 7 kali bayar tagihan.", "Diskon yang dinikmati pelanggan sesuai approval General Manager SBU (Retention atau Retention 2.0).", "Data pelanggan yang sudah disetujui General Manager SBU untuk Program Retention namun tidak diajukan Retention 2.0 hanya dapat dihubungi dan ditawarkan diskon 20–30% oleh Telecollection atau SBU."], "aju": ["Telecollection – Manage Retention (bad debt lebih dari 120 hari).", "Apabila permintaan pelanggan masuk ke kanal, sarankan menghubungi Tim ICONNET yang menawarkan program tersebut."]}, {"id": "nyba", "n": "New Retention Yearly (wajib Berita Acara)", "st": "Berlaku", "tag": "Below The Line", "ring": [["Diskon", "25%–40%"], ["Masa diskon", "12 bulan"], ["Biaya instalasi", "Tidak ada"], ["Wilayah", "Seluruh regional"], ["Periode", "On going"]], "tbl": {"h": ["Kelompok pelanggan", "Bundling 12 bulan", "Bundling 6 bulan", "Bulanan"], "rows": [["Pelanggan ≥ 6 kali paid", "Non NTT 35% · NTT 30%", "Non NTT 30% · NTT 25%", "Semua area 25%"], ["Pelanggan ≥ 12 kali paid", "Non NTT 40% · NTT 35%", "Non NTT 38% · NTT 35%", "Semua area 35%"]]}, "syarat": ["Berlaku untuk pelanggan berpotensi churn dan/atau bad debt (high risk customer).", "Diskon pelanggan ≥ 6 kali paid: hanya untuk pelanggan eksisting dengan layanan reguler minimal 6 kali paid atau Paket Hebat 6.", "Diskon pelanggan ≥ 12 kali paid: hanya untuk pelanggan eksisting dengan layanan reguler minimal 12 kali paid atau Paket Hebat 12 atau 24.", "Harga diskon hanya berlaku 12 bulan, dan pada bulan ke-13 kembali ke harga reguler yang berlaku.", "Apabila pelanggan mengikuti retention bundling 6 bulan, tagihan bulan ke-7 sampai 12 dikenakan harga diskon retention bulanan.", "Harga belum termasuk PPN, kecuali Batam.", "Program tidak dipromosikan secara masif, hanya ditawarkan oleh Sales SBU atau Telecollection melalui telepon atau site visit.", "Pengajuan pelanggan kategori retention melalui Manager SBU dan atas persetujuan General Manager SBU Regional.", "Pelanggan yang sebelumnya sudah mendapat program retention dengan diskon 30%, 25%, dan 20% tetap lanjut dengan diskon eksisting."], "aju": ["Telecollection – Manage Retention (bad debt lebih dari 120 hari).", "Apabila permintaan pelanggan masuk ke kanal contact center, sarankan menghubungi Tim ICONNET yang menawarkan program tersebut."]}, {"id": "nytba", "n": "New Retention Yearly (tanpa Berita Acara)", "st": "Berlaku", "tag": "Below The Line", "ring": [["Diskon", "20%–30%"], ["Masa diskon", "12 bulan"], ["Biaya instalasi", "Tidak ada"], ["Wilayah", "Seluruh regional"], ["Periode", "On going"]], "tbl": {"h": ["Kelompok pelanggan", "Bundling 12 bulan", "Bundling 6 bulan", "Bulanan"], "rows": [["Pelanggan ≥ 7 kali paid", "Non NTT 30% · NTT 25%", "Non NTT 25% · NTT 20%", "Semua area 20%"]]}, "syarat": ["Hanya berlaku untuk pelanggan dengan minimal 7 kali pembayaran.", "Berlaku untuk pelanggan berpotensi churn dan/atau bad debt (high risk customer).", "Harga diskon hanya berlaku 12 bulan, dan pada bulan ke-13 kembali ke harga reguler yang berlaku.", "Apabila pelanggan mengikuti retention bundling 6 bulan, tagihan bulan ke-7 sampai 12 dikenakan harga diskon retention bulanan.", "Harga belum termasuk PPN, kecuali Batam.", "Program tidak dipromosikan secara masif, hanya ditawarkan oleh Sales SBU atau Telecollection melalui telepon atau site visit.", "Pengajuan pelanggan kategori retention melalui Manager SBU dan atas persetujuan General Manager SBU Regional.", "Pelanggan yang sebelumnya sudah mendapat program retention dengan diskon 30%, 25%, dan 20% tetap lanjut dengan diskon eksisting."], "aju": ["Telecollection – Manage Retention (bad debt lebih dari 120 hari).", "Apabila permintaan pelanggan masuk ke kanal contact center, sarankan menghubungi Tim ICONNET yang menawarkan program tersebut."]}, {"id": "nm", "n": "New Retention Monthly (wajib Berita Acara)", "st": "Berlaku", "tag": "Below The Line", "ring": [["Diskon", "5% – 25% (pelanggan Speed Booster 10% – 14%)"], ["Rincian", "Diskon 5%, 10%, 15%, 20%, dan 25%.\nPelanggan Speed Booster mendapat diskon 10% – 14%."], ["Masa diskon", "1 bulan"], ["Biaya instalasi", "Tidak ada"], ["Wilayah", "Seluruh regional"], ["Periode", "On going"]], "syarat": ["Pelanggan berpotensi churn dan/atau bad debt (high risk customer), misalnya akibat kebijakan Fixed Date Billing atau gangguan.", "Pelanggan aktif atau pasif di bawah 90 hari.", "Hanya untuk pelanggan eksisting dengan layanan reguler bulanan tanpa minimal masa berlangganan.", "Hanya untuk 1 bulan, lalu kembali ke harga normal (harga released).", "Diskon diajukan oleh TL/Asman Penjualan atas persetujuan Manajer Penjualan Ritel Regional (Manajer SBU).", "Pemberian diskon retensi wajib melampirkan Berita Acara Persetujuan Harga Retensi.", "Setelah Manajer Penjualan Ritel Regional memberikan approval, diskon langsung diimplementasikan pada billing bulan berjalan.", "Saat ini diskon retensi bisa diberikan lebih dari 1 kali untuk 1 ID Pelanggan.", "Ditawarkan secara below the line / direct probing sales dan tidak dipublikasikan.", "Apabila pelanggan menghubungi contact center, CSO dapat mengecek bahwa ID Pelanggan berhak menerima promo retensi melalui menu Mutasi pada Customer Information.", "Pelanggan yang sudah menerima Speed Booster mendapat tangga diskon 10% dan 14%."], "aju": ["Telecollection – Manage Retention (masa aktif pelanggan di bawah 90 hari)."]}, {"id": "wb", "n": "Winback", "st": "Berlaku", "tag": "Bad debt", "ring": [["Promo", "Gratis 1 bulan: bayar tagihan terakhir, gratis tagihan berikutnya 1 bulan."], ["Biaya instalasi", "Tidak ada"], ["Wilayah", "Seluruh regional"], ["Periode", "On going"]], "syarat": ["Pelanggan bad debt lebih dari 90 hari. Periode Winback dihitung dari tipe billing: prepaid 91 hari sejak periode awal tagihan open, postpaid 91 hari sejak tanggal isolir periode awal tagihan open.", "Gratis berlangganan di bulan pertama untuk pelanggan yang sepakat lanjut berlangganan sesuai data potensi target pelanggan.", "Pelanggan yang masih memiliki kewajiban tagihan harus menyelesaikan kewajiban itu terlebih dahulu.", "Program meneruskan periode masa aktif berlangganan sejak pelanggan pertama kali aktivasi ICONNET.", "Untuk pelanggan yang masuk data potensi deaktivasi, dan hanya berlaku 1 kali kesempatan selama menjadi pelanggan.", "Pelanggan postpaid yang kembali berlangganan akan berlaku layanan prepaid."], "aju": ["Manage Winback."]}];
 const BT_REG=[{"id": "jawabali", "l": "Jawa & Bali", "m": [149667, 159667, 179667, 206333, 259667], "t": [449000, 479000, 539000, 619000, 779000]}, {"id": "sumkal", "l": "Sumatera & Kalimantan", "m": [149667, 166333, 196333, 216333, 306333], "t": [449000, 499000, 589000, 649000, 919000]}, {"id": "indotim", "l": "Indonesia Timur", "m": [149667, 179667, 226333, 269667, 423000], "t": [449000, 539000, 679000, 809000, 1269000]}, {"id": "ntt", "l": "NTT", "m": [176333, 233000, 333000, 406333, 666333], "t": [529000, 699000, 999000, 1219000, 1999000]}, {"id": "natuna", "l": "Natuna", "m": [159667, 206333, 266333, 333000, 533000], "t": [479000, 619000, 799000, 999000, 1599000]}];
-BT_PROG.push(...[{"id": "seru", "n": "ICONNET SERU", "off": 1, "ring": [["Produk", "ICONNET SERU Bulanan dan ICONNET SERU 3"], ["Promo", "SERU Bulanan: harga promo hanya berlaku 12 bulan (bukan 12 kali periode), setelahnya pelanggan dikenakan harga normal bulanan.\nSERU 3: setelah promo SERU-3 berakhir, bulan ke-4 sampai ke-12 dikenakan harga promo SERU Bulanan."], ["Biaya instalasi", "SERU Bulanan Rp250.000\nSERU-3 Gratis instalasi"], ["Wilayah", "Seluruh regional"]], "syarat": ["Hanya berlaku untuk calon pelanggan baru di cluster khusus sesuai mapping SBU.", "Program tidak dipromosikan secara masif, hanya ditawarkan oleh Sales SBU melalui telemarketing, visit on site, atau kanal lain.", "Permohonan berlangganan tetap melalui proses profiling dan filtering berdasarkan ID PLN sesuai kebijakan yang berlaku.", "Pelanggan difasilitasi menggunakan ONT dismantle.", "Pelanggan dikenakan harga reguler apabila melakukan upgrade/downgrade."], "aju": ["Sales SBU / program ICONNET SERU, khusus calon pelanggan terpilih.", "Sarankan pelanggan menghubungi Tim ICONNET yang menawarkan program tersebut."]}, {"id": "coba", "n": "ICONNET Coba", "off": 1, "ring": [["Produk", "ICONNET Coba Bulanan dan ICONNET Coba 3"], ["Promo", "Calon pelanggan dapat menikmati masa trial 14 hari (2 minggu)."], ["Biaya instalasi", "Coba Bulanan Rp25.000\nCoba 3 Gratis instalasi"], ["Wilayah", "SBU Sumbagteng, Jabar, Jateng, dan Jatim (cluster tertentu)"], ["Periode", "Februari – Maret 2025"]], "syarat": ["Hanya pelanggan di cluster terpilih dengan kriteria tertentu yang mendapat penawaran program.", "Flow pendaftaran program tanpa melewati flow profiling dan filtering ID PLN.", "Apabila masa trial habis maka pelanggan terisolir.", "Apabila saat masa trial terdapat kendala, pelaporan tetap ditindaklanjuti sesuai ketentuan berlaku.", "Pelanggan yang bersedia melanjutkan berlangganan setelah masa trial dapat membayar kode VA tagihan maksimal 7 hari setelah masa trial habis (hari ke-21 sejak internet aktif).", "Pelanggan yang tidak melanjutkan berlangganan setelah mengikuti program akan dilakukan pemblokiran data: ID Pelanggan PLN, NIK (nomor KTP), nomor HP, email, dan titik koordinat."], "aju": ["Sales SBU.", "Jika pelanggan bersedia mengikuti program Coba ICONNET, CSO dapat menyarankan calon pelanggan menghubungi Contact Person yang tertera pada brosur."]}, {"id": "coba2", "n": "ICONNET Coba 2.0", "off": 1, "price": "coba", "ring": [["Produk", "ICONNET Coba Bulanan dan ICONNET Coba 3"], ["Promo", "Paket Bulanan (Coba ICONNET): pelanggan membayar biaya instalasi sekali di awal dan membayar biaya berlangganan setiap bulan.\nPaket Non Bulanan/Bundling (Coba ICONNET-3): pelanggan membayar layanan sekaligus 3 bulan di awal sesuai paket yang dipilih, dengan diskon 100% (gratis) untuk biaya instalasi."], ["Biaya instalasi", "Coba Bulanan Rp25.000\nCoba 3 Gratis instalasi"], ["Wilayah", "Seluruh regional (cluster tertentu)"], ["Periode", "On going"]], "syarat": ["Flow pendaftaran program tanpa melewati flow profiling dan filtering ID PLN (langkah lainnya sama dengan pendaftaran ICONNET).", "Proses validasi data calon pelanggan tetap dilakukan.", "Harga Coba 2.0 berlaku selama 12 bulan dan dikenakan harga reguler pada bulan ke-13 sesuai kebijakan yang berlaku.", "Pendaftaran hanya dapat dilakukan oleh Sales SBU.", "Hanya pelanggan di cluster terpilih dengan kriteria tertentu yang mendapat penawaran program.", "Program berlaku di seluruh SBU khusus cluster terlampir.", "Pelanggan difasilitasi dengan ONT dismantle."], "aju": ["Jika pelanggan bersedia mengikuti program Coba 2.0, CSO dapat menyarankan calon pelanggan menghubungi Contact Person yang tertera pada brosur.", "Apabila ada calon pelanggan yang menanyakan informasi seputar program Coba ICONNET, CSO membuka tiket INFORMASI-PRODUK dengan hashtag #COBAICONNET_2 pada Deskripsi Komplain."]}]);
+BT_PROG.push(...[{"id": "seru", "n": "ICONNET SERU", "off": 1, "ring": [["Produk", "ICONNET SERU Bulanan dan ICONNET SERU 3"], ["Promo", "SERU Bulanan: harga promo hanya berlaku 12 bulan (bukan 12 kali periode), setelahnya pelanggan dikenakan harga normal bulanan.\nSERU 3: setelah promo SERU-3 berakhir, bulan ke-4 sampai ke-12 dikenakan harga promo SERU Bulanan."], ["Biaya instalasi", "SERU Bulanan Rp250.000\nSERU-3 Gratis instalasi"], ["Wilayah", "Seluruh regional"]], "syarat": ["Hanya berlaku untuk calon pelanggan baru di cluster khusus sesuai mapping SBU.", "Program tidak dipromosikan secara masif, hanya ditawarkan oleh Sales SBU melalui telemarketing, visit on site, atau kanal lain.", "Permohonan berlangganan tetap melalui proses profiling dan filtering berdasarkan ID PLN sesuai kebijakan yang berlaku.", "Pelanggan difasilitasi menggunakan ONT dismantle.", "Pelanggan dikenakan harga reguler apabila melakukan upgrade/downgrade."], "aju": ["Sales SBU / program ICONNET SERU, khusus calon pelanggan terpilih.", "Sarankan pelanggan menghubungi Tim ICONNET yang menawarkan program tersebut."]}, {"id": "coba", "n": "ICONNET Coba", "off": 1, "ring": [["Produk", "ICONNET Coba Bulanan dan ICONNET Coba 3"], ["Promo", "Calon pelanggan dapat menikmati masa trial 14 hari (2 minggu)."], ["Biaya instalasi", "Coba Bulanan Rp25.000\nCoba 3 Gratis instalasi"], ["Wilayah", "SBU Sumbagteng, Jabar, Jateng, dan Jatim (cluster tertentu)"], ["Periode", "Februari – Maret 2025"]], "syarat": ["Hanya pelanggan di cluster terpilih dengan kriteria tertentu yang mendapat penawaran program.", "Flow pendaftaran program tanpa melewati flow profiling dan filtering ID PLN.", "Apabila masa trial habis maka pelanggan terisolir.", "Apabila saat masa trial terdapat kendala, pelaporan tetap ditindaklanjuti sesuai ketentuan berlaku.", "Pelanggan yang bersedia melanjutkan berlangganan setelah masa trial dapat membayar kode VA tagihan maksimal 7 hari setelah masa trial habis (hari ke-21 sejak internet aktif).", "Pelanggan yang tidak melanjutkan berlangganan setelah mengikuti program akan dilakukan pemblokiran data: ID Pelanggan PLN, NIK (nomor KTP), nomor HP, email, dan titik koordinat."], "aju": ["Sales SBU.", "Jika pelanggan bersedia mengikuti program Coba ICONNET, CSO dapat menyarankan calon pelanggan menghubungi Contact Person yang tertera pada brosur."]}, {"id": "coba2", "n": "ICONNET Coba 2.0", "off": 1, "price": "coba", "ring": [["Produk", "ICONNET Coba Bulanan dan ICONNET Coba 3"], ["Promo", "Paket Bulanan (Coba ICONNET): pelanggan membayar biaya instalasi sekali di awal dan membayar biaya berlangganan setiap bulan.\nPaket Non Bulanan/Bundling (Coba ICONNET-3): pelanggan membayar layanan sekaligus 3 bulan di awal sesuai paket yang dipilih, dengan diskon 100% (gratis) untuk biaya instalasi."], ["Biaya instalasi", "Coba Bulanan Rp25.000\nCoba 3 Gratis instalasi"], ["Wilayah", "Seluruh regional (cluster tertentu)"], ["Periode", "On going"]], "syarat": ["Flow pendaftaran program tanpa melewati flow profiling dan filtering ID PLN (langkah lainnya sama dengan pendaftaran ICONNET).", "Proses validasi data calon pelanggan tetap dilakukan.", "Harga Coba 2.0 berlaku selama 12 bulan dan dikenakan harga reguler pada bulan ke-13 sesuai kebijakan yang berlaku.", "Pendaftaran hanya dapat dilakukan oleh Sales SBU.", "Hanya pelanggan di cluster terpilih dengan kriteria tertentu yang mendapat penawaran program.", "Program berlaku di seluruh SBU khusus cluster terlampir.", "Pelanggan difasilitasi dengan ONT dismantle."], "aju": ["Jika pelanggan bersedia mengikuti program Coba 2.0, CSO dapat menyarankan calon pelanggan menghubungi Contact Person yang tertera pada brosur.", "Apabila ada calon pelanggan yang menanyakan informasi seputar program Coba ICONNET, CSO membuka tiket INFORMASI-PRODUK dengan hashtag #COBAICONNET_2 pada Deskripsi Komplain."]}, {"id": "upsell", "n": "ICONNET Upgrade Harga Khusus (Upselling)", "off": 1, "ring": [["Jenis", "Above The Line"], ["Produk", "Program upgrade bandwidth dengan harga khusus untuk pelanggan aktif yang memenuhi persyaratan:\n10 Mbps menjadi 35 Mbps\n20 Mbps menjadi 35 Mbps atau 50 Mbps (35 Mbps bila harga yang dibayar lebih murah dari harga 35 Mbps yang berlaku, 50 Mbps bila lebih mahal)\n35 Mbps menjadi 50 Mbps\n50 Mbps menjadi 100 Mbps"], ["Promo", "Upgrade bandwidth dengan harga lama ditambah Rp20.000 untuk pelanggan aktif dengan paid ≥ 6 bulan."], ["Wilayah", "Seluruh regional (kecuali NTT dan Natuna)"]], "syarat": ["Berlaku nasional, kecuali NTT dan Natuna.", "Pelanggan aktif dengan jumlah paid ≥ 6 bulan (bulan pembayaran tidak harus berurutan) dan berlangganan paket reguler.", "Tidak dapat digabungkan dengan promo harga lainnya.", "Penawaran diberikan otomatis lewat pop up message di MyICON+. Pelanggan dinyatakan mengajukan upgrade setelah konfirmasi dari pop up tersebut.", "Bisnis proses sama seperti upgrade non harga khusus.", "Upgrade harga khusus tidak dapat dibatalkan setelah pelanggan konfirmasi persetujuan lewat MyICON+.", "Prepaid (fixed date billing): tidak ada tagihan upgrade di depan. Upgrade langsung dipakai setelah berhasil provisioning, dan tagihan upgrade baru muncul di bulan selanjutnya.", "Postpaid: terbit tagihan upgrade dan status berubah menjadi prepaid. Bila tanggal pengajuan lebih dari atau sama dengan tanggal periode akhir, terbit tagihan prepaid harga baru untuk bulan depan. Bila kurang dari tanggal periode akhir, terbit tagihan prorate. Provisioning diproses setelah tagihan upgrade dibayar.", "Tagihan bulan pengajuan (bulan pertama) tetap memakai harga paket sebelumnya, tanpa tambahan biaya.", "Tagihan bulan ke-2 sampai bulan ke-12 memakai harga khusus (harga lama ditambah Rp20.000).", "Harga khusus berlaku 12 bulan sejak tanggal aktivasi upgrade.", "Selama periode harga khusus, pelanggan tidak dapat mengajukan downgrade. Pelanggan bisa mengajukan upgrade, tetapi kembali ke harga normal.", "Setelah periode harga khusus berakhir, pelanggan tetap memakai bandwidth hasil upgrade dengan harga normal paket tersebut.", "Pelanggan Upselling tidak dapat promo Customer Loyalty.", "Pelanggan yang memenuhi syarat tetap mendapat harga khusus walaupun harga layanan awalnya berbeda dari tabel harga.", "Harga belum termasuk PPN."], "aju": ["MyICON+ versi terbaru: iOS 2.0.9, Android 3.0.12.", "Bila pelanggan menghubungi Contact Center dan berminat, CSO mengedukasi pengajuan upgrade lewat MyICON+ tanpa membuat tiket Keluhan — Permohonan Upgrade.", "Bila upgrade dilakukan lewat Sales, harga yang terbit bukan harga khusus."]}, {"id": "loyalty", "n": "ICONNET Upgrade Harga Khusus (Customer Loyalty) · Speed Booster", "st": "Berlaku", "ring": [["Jenis", "Above The Line. Dikenal sebagai speed booster."], ["Produk", "ICONNET Reguler 10 Mbps, 20 Mbps, 35 Mbps, dan 50 Mbps"], ["Promo", "Upgrade bandwidth dengan harga lama untuk pelanggan aktif dengan paid ≥ 24 bulan."], ["Wilayah", "Seluruh regional"]], "syarat": ["Berlaku nasional.", "Pelanggan aktif dengan jumlah paid ≥ 24 bulan dan berlangganan paket reguler.", "Pelanggan tidak dalam kondisi isolir (prepaid dan postpaid).", "Pelanggan postpaid tetap postpaid setelah diproses.", "Tidak dapat digabungkan dengan promo atau program harga lainnya.", "Upgrade diberikan otomatis kepada pelanggan yang memenuhi syarat dan tidak sedang menikmati promo harga lainnya.", "Pelanggan menerima blast lewat pop up message MyICON+, email, dan WhatsApp (salah satunya saja).", "Upgrade tidak dikenakan biaya tambahan, baik pada bulan upgrade maupun selama pelanggan mengikuti ketentuan program.", "Pelanggan mendapat upgrade 1 (satu) level di atas paket saat ini, dengan harga tetap memakai harga paket sebelumnya. Harga berlaku permanen selama pelanggan tetap memakai paket hasil upgrade dan tidak mengubah paket.", "Bila pelanggan Customer Loyalty yang sudah berhasil dikonfigurasi mengajukan upgrade atau downgrade, dikenakan harga reguler atau normal.", "Bila pelanggan tidak menerima speed booster dan mengajukan downgrade, hanya bisa kembali ke paket semula (lihat kartu Downgrade, pengecualian speed booster).", "Pelanggan Customer Loyalty tidak dapat promo Upselling.", "Harga belum termasuk PPN."], "aju": ["Otomatis untuk pelanggan terpilih."]}]);
 BT_REG.forEach(r=>{r.cm=BT_CB[r.id][0];r.ct=BT_CB[r.id][1]});
 function btText(rg,cb){
   const nm=cb?'Coba':'Extra No Debat',m=cb?rg.cm:rg.m,t=cb?rg.ct:rg.t,ins=cb?['Rp 25.000','Gratis']:['Gratis','Gratis'];
@@ -1653,7 +1906,7 @@ function viewBtl(c){
   <div class="box"><h3>${esc(pg.n)}</h3>${ring}${tbl}</div>
   ${pl}
   <div class="box"><h3>Syarat dan ketentuan</h3>${ul(pg.syarat)}</div>
-  <div class="box"><h3>Media pengajuan</h3>${ul(pg.aju)}</div>`;
+  <div class="box"><h3>Media pengajuan</h3>${ul(pg.aju)}${pg.go?'<div class="tools" style="margin-top:10px">'+pg.go.map(([id,l])=>`<button class="btn" data-a="open" data-id="${esc(id)}">${esc(l)}</button>`).join('')+'</div>':''}</div>`;
 }
 
 const BZ_SPD=[75,150,250];
@@ -1696,6 +1949,21 @@ function pkText(pg){
   const L=['Price list ICONNET Program Khusus — '+pg.n,(pg.ppn?pg.ppn+' ':'')+'(update '+pg.upd+')',pg.it||'Harga sudah termasuk biaya instalasi',''];
   pg.pr.forEach(r=>{L.push(r[0]+':');pg.ph.forEach((h,i)=>L.push('- '+h+': '+prRp(r[i+1])));L.push('')});
   return L.join('\n').trim();
+}
+const GW_META={prog:'31 Oktober 2026'};
+const GW_PROG=[{"id": "dreams", "n": "ICONNET THEIR DREAMS", "end": "2026-11-15", "ring": [["Kategori", "Gamifikasi"], ["Pemasaran", "Above The Line"], ["Produk", "ICONNET"], ["Promo", "Customer Story & Appreciation: memberikan merchandise/souvenir ICONNET kepada pelanggan terpilih."], ["Tata cara pemberian hadiah", "Publikasi Program → Pengumpulan Short Story Pelanggan → Kurasi & Seleksi Cerita → Penentuan Pelanggan Terpilih → Pemberian Merchandise/Souvenir → Publikasi Cerita Terpilih"], ["Wilayah", "Seluruh Regional"], ["Periode", "5 s.d 15 November 2026"]], "syarat": ["Program ini diberlakukan untuk Pelanggan Aktif ICONNET pada cluster existing yang berulang tahun pada bulan November 2026.", "Pelanggan dapat berpartisipasi dengan mengirimkan short story sepanjang 100–150 kata mengenai impian pribadi serta peran konektivitas internet dalam mendukung dan mewujudkan impian tersebut.", "Pengumpulan cerita pelanggan dilakukan melalui kanal media sosial resmi ICONNET sesuai dengan mekanisme yang ditetapkan oleh penyelenggara.", "Cerita yang disampaikan harus bersifat orisinal, inspiratif, relevan dengan tema ICONNET CONNECT THEIR DREAMS, serta tidak mengandung unsur SARA, pornografi, maupun konten yang bertentangan dengan ketentuan perusahaan.", "Tim ICONNET melakukan kurasi dan pemilihan cerita pelanggan berdasarkan aspek inspirasi, kreativitas, relevansi cerita dengan konektivitas internet, serta kesesuaian dengan tema program.", "Pelanggan dengan cerita terpilih berhak mendapatkan apresiasi berupa merchandise/souvenir ICONNET.", "Cerita pelanggan terpilih akan dipublikasikan melalui media sosial resmi ICONNET sebagai bagian dari kampanye customer engagement dan brand awareness.", "Dokumentasi dan publikasi kegiatan dilakukan oleh tim terkait untuk kebutuhan komunikasi dan promosi perusahaan."]}];
+function viewGw(c){
+  const g=GROUPS[c.group]||'';
+  const pg=GW_PROG.find(x=>x.id===S.gw.prog)||GW_PROG[0];
+  const ol=a=>'<ol class="steps">'+a.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ol>';
+  const ring='<table><tbody>'+pg.ring.map(([k,v])=>'<tr><td style="width:150px"><b>'+esc(k)+'</b></td><td style="white-space:pre-line">'+esc(v)+'</td></tr>').join('')+'</tbody></table>';
+  const over=pg.end&&wibNow().date>pg.end;
+  return `<div class="head"><div><div class="titlerow">${icoTile(c,'lg')}<h1>${esc(g)} — ${esc(c.title)}</h1></div>
+    <div class="meta">Informasi program update ${esc(GW_META.prog)}</div></div></div>
+  ${GW_PROG.length>1?`<div class="box"><div class="q" style="margin:0"><b>Pilih program</b><div class="pills">${GW_PROG.map(x=>`<button class="pill ${x.id===pg.id?'on':''}" data-a="gwprog" data-v="${x.id}" aria-pressed="${x.id===pg.id}">${esc(x.n)}</button>`).join('')}</div></div></div>`:''}
+  ${over?`<div class="trw" role="alert" style="margin:0"><b>Periode ${esc(pg.n)} sudah berakhir.</b> Program ini tidak dapat ditawarkan lagi. Informasi di bawah hanya untuk referensi.</div>`:''}
+  <div class="box"><h3>${esc(pg.n)}</h3>${ring}</div>
+  <div class="box"><h3>Syarat dan ketentuan</h3>${ol(pg.syarat)}</div>`;
 }
 function viewPk(c){
   const g=GROUPS[c.group]||'';
@@ -2018,24 +2286,24 @@ dwn:{meta:'Menurunkan kecepatan layanan internet',
    '**Paket pelanggan minimal 35 Mbps.**',
    '**Paket baru tidak boleh di bawah paket terendah wilayahnya.** 20 Mbps untuk Sumatera, Kalimantan, Indonesia Timur, dan Batam. 35 Mbps untuk Jawa-Bali, NTT, dan Natuna (pelanggan 35 Mbps di wilayah ini tidak bisa turun).',
    '**Postpaid wajib melunasi semua tagihan yang sudah terbit** (termasuk pelanggan aktif) sebelum mengajukan. CSO mengedukasi pelanggan untuk membayar terlebih dahulu. Prepaid tidak perlu, dan bisa mengajukan kapan saja.',
-   '**Pengecualian speed booster:** syarat nomor 1 dan 2 tidak berlaku. Speed booster adalah tambahan kecepatan gratis untuk pelanggan setia. Bila pelanggan tidak mau, ia hanya bisa **kembali ke paket semula**, dengan harga paket semula. Retensi tetap wajib. Contoh: pelanggan 10 Mbps dapat booster 20 Mbps boleh kembali ke 10 Mbps. Pelanggan 20 Mbps dapat booster 35 Mbps **tidak bisa** turun ke 10 Mbps, hanya kembali ke 20 Mbps.',
+   '**Pengecualian speed booster:** syarat nomor 1 dan 2 tidak berlaku. Speed booster adalah tambahan kecepatan gratis untuk pelanggan setia (program ICONNET Upgrade Harga Khusus Customer Loyalty). Bila pelanggan tidak mau, ia hanya bisa **kembali ke paket semula**, dengan harga paket semula. Retensi tetap wajib. Contoh: pelanggan 10 Mbps dapat booster 20 Mbps boleh kembali ke 10 Mbps. Pelanggan 20 Mbps dapat booster 35 Mbps **tidak bisa** turun ke 10 Mbps, hanya kembali ke 20 Mbps.',
    '**Billing postpaid berubah menjadi prepaid** apabila downgrade dilakukan.',
    '**Pengajuan lewat telepon atau inbound:** arahkan ke layanan digital, karena membutuhkan lampiran KTP.',
    '**Paket HEBAT tidak dapat downgrade.** Ketentuan yang sama berlaku bagi pelanggan promo Winback ("Tak Bisa ke Lain Hati") dan program COBA ICONNET. Apabila pelanggan tetap ingin upgrade atau downgrade, CSO harus proaktif menginformasikan bahwa **promo akan hangus atau harga kembali normal**.',
    '**Kode pembayaran tidak memiliki masa kedaluwarsa.**',
-   '**Tidak ada perhitungan selisih hari (pro rata)** untuk downgrade.']},
-  {h:'Kapan paket dikonfigurasi',prio:'Urutan di bawah mengikuti tabel resmi **QOS UP2DATE 17 November 2026**. Persetujuan Manajer paling lama **2×24 jam** sejak masuk TO. **Setiap tagihan yang sudah terbit dan belum dibayar otomatis dikoreksi menyesuaikan paket baru.**',ol:[
-   '**Prepaid isolir, tanggal pengajuan berapa pun:** langsung setelah disetujui.',
+   '**Tidak ada perhitungan selisih hari (pro rata)** untuk downgrade.'],go:[['pr-btl','Buka Below The Line (Customer Loyalty)']]},
+  {h:'Kapan paket dikonfigurasi',prio:'Urutan di bawah mengikuti tabel resmi **QOS UP2DATE 17 November 2026**. Persetujuan Manajer paling lama **2×24 jam** sejak masuk TO.',ol:[
+   '**Prepaid isolir, tanggal pengajuan berapa pun:** langsung setelah disetujui, tagihan menyesuaikan.',
    {t:'**Prepaid aktif, mengajukan tanggal 22 atau sebelumnya**',sub:[
     'Disetujui sebelum tanggal 25: **tanggal 24 bulan ini**.',
-    'Disetujui Manajer tanggal 25 sehingga terbit tagihan baru dan **belum dibayar:** **langsung setelah disetujui**.',
+    'Disetujui Manajer tanggal 25 sehingga terbit tagihan baru dan **belum dibayar:** **langsung setelah disetujui**, tagihan menyesuaikan.',
     'Disetujui Manajer tanggal 25 sehingga terbit tagihan baru dan **sudah dibayar:** **tanggal 24 bulan depan**.']},
    {t:'**Prepaid aktif, mengajukan tanggal 23 atau 24**',sub:[
     'Disetujui sebelum tanggal 25: **langsung setelah disetujui**.',
-    'Disetujui Manajer tanggal 25 sehingga terbit tagihan baru dan **belum dibayar:** **langsung setelah disetujui**.',
+    'Disetujui Manajer tanggal 25 sehingga terbit tagihan baru dan **belum dibayar:** **langsung setelah disetujui**, tagihan menyesuaikan.',
     'Disetujui Manajer tanggal 25 sehingga terbit tagihan baru dan **sudah dibayar:** **tanggal 24 bulan depan**.']},
    {t:'**Prepaid aktif, mengajukan tanggal 25 atau sesudahnya** (tagihan baru sudah terbit)',sub:[
-    '**Belum dibayar:** **langsung setelah disetujui**.',
+    '**Belum dibayar:** **langsung setelah disetujui**, tagihan menyesuaikan.',
     '**Sudah dibayar:** **tanggal 24 bulan depan**.']},
    {t:'**Postpaid** (wajib lunas dulu), pengajuan di tanggal berapa pun',sub:[
     'Disetujui Manajer tanggal 24 atau sebelumnya: **tanggal 24 bulan ini**.',
@@ -2862,7 +3130,12 @@ function viewTranslator(c){
   return `<div class="head"><div><span class="badge">TUJUAN: INFORMASI UNTUK PELANGGAN</span>
     <div class="titlerow">${icoTile(c,'lg')}<h1>${esc(g)} — ${esc(c.title)}</h1></div>
     <div class="meta">Berbasis kamus istilah, tanpa AI · hasil tanpa angka dan jam</div></div></div>
-  <div class="box"><h3>Tempel laporan teknisi</h3>
+  <div class="box"><h3>Cari istilah atau kata</h3>
+    <p class="hint" style="margin:0 0 8px">Ketik istilah teknis dari laporan, misalnya "LOS", "feeder cut", "KWH trip". Boleh lebih dari satu, misalnya "ftth backbone". Salah ketik ringan tetap dikenali.</p>
+    <input id="trQ" class="trq" type="search" autocomplete="off" spellcheck="false" placeholder="Cari kata kunci…" value="${esc(S.tr.q||'')}" aria-label="Cari istilah teknis">
+    <div class="pills" style="margin:10px 0">${[['Semua',-1],...TR_CATS.map((x,i)=>[x,i])].map(([l,i])=>`<button class="chip${(S.tr.cat==null?-1:S.tr.cat)===i?' on':''}" data-a="trcat" data-i="${i}">${esc(l)}</button>`).join('')}</div>
+    <div id="trRes">${trResHTML()}</div></div>
+  <div class="box"><h3>Atau tempel laporan teknisi</h3>
     <textarea id="trIn" class="trta" rows="9" spellcheck="false" placeholder="Tempel laporan dari teknisi, NOC, atau update progress iCRM+ di sini…">${esc(S.tr.inp)}</textarea>
     <div class="tools" style="margin-top:8px"><button class="btn" data-a="trclear">Hapus</button></div></div>
   <div class="box gr"><h3>Kalimat untuk pelanggan</h3>
@@ -3664,7 +3937,9 @@ const PRG={
   ['wb','Winback',{s:{bt:{prog:'wb'}}},['winback','btl winback','program winback']],
   ['seru','ICONNET SERU',{s:{bt:{prog:'seru'}}},['iconnet seru','program seru','btl seru']],
   ['coba','ICONNET Coba',{s:{bt:{prog:'coba'}}},['iconnet coba','program coba','btl coba']],
-  ['coba2','ICONNET Coba 2.0',{s:{bt:{prog:'coba2'}}},['iconnet coba 2.0','coba 2.0','program coba 2']]],
+  ['coba2','ICONNET Coba 2.0',{s:{bt:{prog:'coba2'}}},['iconnet coba 2.0','coba 2.0','program coba 2']],
+  ['upsell','ICONNET Upgrade Harga Khusus (Upselling)',{s:{bt:{prog:'upsell'}}},['upgrade harga khusus upselling','upselling','upsell','upgrade harga lama tambah 20000']],
+  ['loyalty','ICONNET Upgrade Harga Khusus (Customer Loyalty) · Speed Booster',{s:{bt:{prog:'loyalty'}}},['customer loyalty','speed booster','booster','upgrade harga khusus customer loyalty','upgrade gratis paid 24 bulan']]],
  'pr-biz':[
   ['biz','ICONNETBIZ',{},['iconnetbiz','iconnet biz','paket bisnis','harga biz','iconnet bisnis','paket umkm']],
   ['b75','Bandwidth 75 Mbps (BIZ)',{},['75 mbps','75 mega','biz 75 mbps']],
@@ -3675,6 +3950,8 @@ const PRG={
   ['mg','Samesta Mahata Margonda',{s:{pk:{prog:'mg'}}},['samesta mahata margonda','paket khusus margonda','margonda']],
   ['sp','The Stabat Pavilion',{s:{pk:{prog:'sp'}}},['the stabat pavilion','stabat pavilion','paket khusus stabat','stabat']],
   ['gr','Gardenia Raya (Cluster Varindo)',{s:{pk:{prog:'gr'}}},['gardenia raya','cluster varindo','varindo','paket khusus gardenia']]],
+ 'pr-giveaway':[
+  ['dreams','ICONNET THEIR DREAMS',{s:{gw:{prog:'dreams'}}},['iconnet their dreams','their dreams','connect their dreams','giveaway','give away','gamifikasi','short story','merchandise','souvenir','ulang tahun pelanggan']]],
  'pr-bhma':[
   ['reg','BHMA Reguler',{s:{bh:{prog:'reg'}}},['bhma reguler','bhma','harga bhma']],
   ['mbg','BHMA MBG (Merdeka Bandwidth Gede)',{s:{bh:{prog:'mbg'}}},['bhma mbg','merdeka bandwidth gede','mbg']]],
@@ -4104,6 +4381,7 @@ const H={
   bhprog:t=>{S.bh.prog=t.dataset.v;renderMain()},
   bhreg:t=>{S.bh.region=t.dataset.v;renderMain()},
   bhcopy:async t=>{const pg=BH_PROG.find(x=>x.id===S.bh.prog)||BH_PROG[0];toast(await copyText(bhText(pg,S.bh.region))?'Tersalin ✔':'Gagal menyalin — blok teks lalu salin manual')},
+  gwprog:t=>{S.gw.prog=t.dataset.v;renderMain()},
   pkprog:t=>{S.pk.prog=t.dataset.v;renderMain()},
   pkcopy:async t=>{const pg=PK_PROG.find(x=>x.id===S.pk.prog)||PK_PROG[0];toast(await copyText(pkText(pg))?'Tersalin ✔':'Gagal menyalin — blok teks lalu salin manual')},
   bzreg:t=>{S.bz.region=t.dataset.v;renderMain()},
@@ -4114,6 +4392,10 @@ const H={
   prreg:t=>{S.pr.region=t.dataset.v;renderMain()},
   prcopy:async t=>{const rg=PR_REG.find(x=>x.id===S.pr.region)||PR_REG[0];toast(await copyText(prText(rg))?'Tersalin ✔':'Gagal menyalin — blok teks lalu salin manual')},
   trcopy:async t=>{const o=$('#trOut');if(!o||!o.value.trim())return;if(S.tr.state==='unknown'&&!S.tr.okUnk){S.tr.okUnk=true;toast('Teks belum dikenali kamus. Periksa isinya, lalu tekan Salin sekali lagi jika yakin.');return}S.tr.unk.forEach(k=>{DB.trUnk[k]=(DB.trUnk[k]||0)+1});if(S.tr.unk.length)save();toast(await copyText(o.value.trim())?'Tersalin ✔':'Gagal menyalin — blok teks lalu salin manual')},
+  trcat:t=>{S.tr.cat=+t.dataset.i;trResPaint()},
+  trq:t=>{S.tr.q=t.dataset.q;const i=$('#trQ');if(i){i.value=S.tr.q;i.focus()}trResPaint()},
+  trpick:t=>{const sn=trTextFor(t.dataset.id),o=$('#trOut');if(!sn||!o)return;if(o.value.includes(sn)){toast('Kalimat itu sudah ada');return}o.value=(o.value.trim()?o.value.trim()+' ':'')+sn;S.tr.state='ok';S.tr.okUnk=false;trGuard(o.value);toast('Ditambahkan ke kalimat untuk pelanggan');o.scrollIntoView({block:'center',behavior:'smooth'})},
+  trcp1:async t=>{const sn=trTextFor(t.dataset.id);if(!sn)return;toast(await copyText(sn)?'Tersalin ✔':'Gagal menyalin — blok teks lalu salin manual')},
   trclear:t=>{S.tr={inp:'',out:'',unk:[]};renderMain();const i=$('#trIn');if(i)i.focus()},
   trunk:async t=>{toast(await copyText(S.tr.unk.join('\n'))?'Tersalin ✔ — kirim ke Trainer':'Gagal menyalin')},
   trunkclear:t=>{DB.trUnk={};save();renderMain()},
@@ -4332,6 +4614,7 @@ document.addEventListener('input',e=>{
   const t=e.target;
   if(t.dataset.f){S.fields[t.dataset.f]=t.value;const c=getCard(S.caseId);document.querySelectorAll('.tpl[data-u]').forEach(el=>{el.innerHTML=tplHTML(c,el.dataset.u)});const d=FIELDS[t.dataset.f];t.classList.toggle('bad',!!t.value&&!!d&&!d.ok(t.value.trim()))}
   if(t.id==='trIn'){trRun(t.value)}
+  if(t.id==='trQ'){S.tr.q=t.value;trResPaint()}
   if(t.id==='trOut'){trGuard(t.value)}
   if(t.id==='q'){clearTimeout(window.__qt);window.__qt=setTimeout(()=>{window.__qt=0;S.hit=0;syncSearch();showResults(false)},90)}
 });
